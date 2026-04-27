@@ -8,7 +8,7 @@ const navItems = [
   { label: "TOP", href: "#hero" },
   { label: "概要", href: "#overview" },
   { label: "アクセス", href: "#access" },
-  { label: "参加登録", href: "#registration" },
+  { label: "お問い合わせ", href: "#contact" },
 ];
 
 export default function Header() {
@@ -57,7 +57,7 @@ export default function Header() {
               保
             </div>
             <span className="text-sm sm:text-base font-bold text-white/90 group-hover:text-amber-400 transition-colors">
-              保母中 同窓会
+              保々中 同窓会
             </span>
           </Link>
 

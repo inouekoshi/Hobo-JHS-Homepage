@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Countdown from "./Countdown";
 
 export default function Hero() {
-  const scrollToRegistration = () => {
-    const el = document.querySelector("#registration");
+  const scrollToContact = () => {
+    const el = document.querySelector("#contact");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -28,7 +28,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4 sm:mb-6">
-          <span className="block text-white">保母中学校</span>
+          <span className="block text-white">保々中学校</span>
           <span className="block gradient-text mt-1 sm:mt-2">新成人同窓会</span>
         </motion.h1>
 
@@ -44,8 +44,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.0 }}>
-          <button onClick={scrollToRegistration} className="group relative inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-base sm:text-lg rounded-full shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105 active:scale-95">
-            <span>参加登録はこちら</span>
+          <button onClick={scrollToContact} className="group relative inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-base sm:text-lg rounded-full shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105 active:scale-95">
+            <span>お問い合わせはこちら</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>

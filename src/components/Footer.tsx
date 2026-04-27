@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-bold text-sm">
               保
             </div>
-            <span className="text-base font-bold text-white/80">保母中学校 新成人同窓会</span>
+            <span className="text-base font-bold text-white/80">保々中学校 新成人同窓会</span>
           </div>
 
           {/* Contact */}
@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-xs text-white/30">
-            © 2027 保母中学校 同窓会実行委員会. All rights reserved.
+            © 2027 保々中学校 同窓会実行委員会. All rights reserved.
           </p>
         </div>
       </motion.div>

@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import EventOverview from "@/components/EventOverview";
 import Access from "@/components/Access";
-import RegistrationForm from "@/components/RegistrationForm";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         <Hero />
         <EventOverview />
         <Access />
-        <RegistrationForm />
+        <ContactForm />
       </main>
       <Footer />
     </>
