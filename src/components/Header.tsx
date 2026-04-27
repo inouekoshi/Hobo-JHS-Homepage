@@ -7,6 +7,7 @@ import Link from "next/link";
 const navItems = [
   { label: "TOP", href: "#hero" },
   { label: "概要", href: "#overview" },
+  { label: "スケジュール", href: "#schedule" },
   { label: "アクセス", href: "#access" },
   { label: "お問い合わせ", href: "#contact" },
 ];
