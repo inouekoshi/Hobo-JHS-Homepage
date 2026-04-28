@@ -13,7 +13,7 @@ const infoCards = [
   {
     icon: "📍",
     title: "会場",
-    content: "プラトンホテル\n四日市市諏訪栄町7-28",
+    content: "プラトンホテル四日市\n〒510-0087 三重県四日市市西新地7-3",
     color: "from-amber-500/20 to-amber-600/10",
   },
   {

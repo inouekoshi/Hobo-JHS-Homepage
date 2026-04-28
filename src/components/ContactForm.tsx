@@ -9,6 +9,12 @@ interface FormData {
   message: string;
 }
 
+// Formspree エンドポイント
+// .env.local に NEXT_PUBLIC_FORMSPREE_ID=xxxxxxxx を設定してください
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ID
+  ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`
+  : null;
+
 export default function ContactForm() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -19,6 +25,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,10 +36,46 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // TODO: Formspree / Resend 等のバックエンド連携
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    try {
+      if (FORMSPREE_ENDPOINT) {
+        // Formspree に送信
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _replyto: formData.email,
+            _subject: `【保々中同窓会】${formData.name}さんからのお問い合わせ`,
+          }),
+        });
+
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data?.error ?? "送信に失敗しました");
+        }
+      } else {
+        // 開発環境: Formspree未設定時はコンソールに出力
+        console.log("【開発モード】フォーム送信データ:", formData);
+        await new Promise((resolve) => setTimeout(resolve, 800));
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "送信中にエラーが発生しました。時間をおいて再度お試しください。"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -51,7 +94,7 @@ export default function ContactForm() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               送信完了！
             </h3>
-            <p className="text-white/60">
+            <p className="text-white/60 leading-relaxed">
               お問い合わせありがとうございます。
               <br />
               担当者より折り返しご連絡いたします。
@@ -95,7 +138,7 @@ export default function ContactForm() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="glass-card p-6 sm:p-8 space-y-5"
         >
-          {/* 名前 */}
+          {/* お名前 */}
           <div>
             <label
               htmlFor="contact-name"
@@ -155,6 +198,18 @@ export default function ContactForm() {
             />
           </div>
 
+          {/* エラーメッセージ */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-start gap-2 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
+            >
+              <span className="shrink-0 mt-0.5">⚠️</span>
+              <span>{error}</span>
+            </motion.div>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
@@ -163,10 +218,7 @@ export default function ContactForm() {
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">
-                <svg
-                  className="animate-spin h-5 w-5"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
                   <circle
                     className="opacity-25"
                     cx="12"

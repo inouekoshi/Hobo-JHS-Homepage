@@ -38,12 +38,12 @@ export default function Access() {
           {/* Google Maps embed */}
           <div className="w-full h-64 sm:h-80 md:h-96 relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5!2d136.623!3d34.966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60038e3fd5c3f8e5%3A0x2c3e3e3e3e3e3e3e!2z44OX44Op44OI44Oz44Ob44OG44Or!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.128!2d136.6133!3d34.9694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60038e4c3b5f5555%3A0x8c5f5f5f5f5f5f5f!2z44OX44Op44OI44Oz44Ob44OG44Or5Zub5pelluS_oeW3peW4gu6qqA!5e0!3m2!1sja!2sjp!4v1714268400000!5m2!1sja!2sjp"
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="プラトンホテル 地図"
+              title="プラトンホテル四日市 地図"
             />
           </div>
 
@@ -54,9 +54,9 @@ export default function Access() {
                 <span className="text-amber-400 text-sm">🏨</span>
               </div>
               <div>
-                <p className="text-sm font-bold text-white/90">プラトンホテル</p>
+                <p className="text-sm font-bold text-white/90">プラトンホテル四日市</p>
                 <p className="text-sm text-white/50 mt-0.5">
-                  〒510-0067 三重県四日市市浜田町12-5
+                  〒510-0087 三重県四日市市西新地7-3
                 </p>
               </div>
             </div>

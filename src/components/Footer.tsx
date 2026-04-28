@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="space-y-2">
             <p className="text-sm text-white/40">お問い合わせ</p>
             <p className="text-sm text-white/60">
-              メール：<a href="mailto:hobo-reunion@example.com" className="text-amber-400 hover:text-amber-300 transition-colors underline underline-offset-2">hobo-reunion@example.com</a>
+              メール：<a href="mailto:koshi1250@icloud.com" className="text-amber-400 hover:text-amber-300 transition-colors underline underline-offset-2">koshi1250@icloud.com</a>
             </p>
           </div>
 
