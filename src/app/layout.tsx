@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "保々中学校 新成人同窓会 2027",
-    description: "あの頃の絆を、もう一度。2027年1月10日（土）18:00 開催。",
+    description: "あの頃の絆を、もう一度。2027年1月10日（日）18:00 開催。",
     type: "website",
     url: SITE_URL,
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "保々中学校 新成人同窓会 2027",
-    description: "あの頃の絆を、もう一度。2027年1月10日（土）18:00 開催。",
+    description: "あの頃の絆を、もう一度。2027年1月10日（日）18:00 開催。",
     images: ["/ogp.png"],
   },
 };
