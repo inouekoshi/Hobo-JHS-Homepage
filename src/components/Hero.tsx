@@ -50,7 +50,7 @@ export default function Hero() {
           className="mb-4 sm:mb-6"
         >
           <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-medium text-amber-400/90 border border-amber-500/30 rounded-full bg-amber-500/5 tracking-widest">
-            2027.01.10 SAT — 18:00
+            2027.01.10 SUN — 18:00
           </span>
         </motion.div>
 
