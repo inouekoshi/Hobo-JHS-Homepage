@@ -7,7 +7,7 @@ const infoCards = [
   {
     icon: "📅",
     title: "日時",
-    content: "2027年1月10日（土）\n18:00 開場 / 18:30 開宴",
+    content: "2027年1月10日（土）\n18:00 開宴",
     color: "from-blue-500/20 to-blue-600/10",
   },
   {

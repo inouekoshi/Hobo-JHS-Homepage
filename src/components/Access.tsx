@@ -38,7 +38,7 @@ export default function Access() {
           {/* Google Maps embed */}
           <div className="w-full h-64 sm:h-80 md:h-96 relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.128!2d136.6133!3d34.9694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60038e4c3b5f5555%3A0x8c5f5f5f5f5f5f5f!2z44OX44Op44OI44Oz44Ob44OG44Or5Zub5pelluS_oeW3peW4gu6qqA!5e0!3m2!1sja!2sjp!4v1714268400000!5m2!1sja!2sjp"
+              src="https://maps.google.com/maps?q=%E3%83%97%E3%83%A9%E3%83%88%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E5%9B%9B%E6%97%A5%E5%B8%82+%E4%B8%89%E9%87%8D%E7%9C%8C%E5%9B%9B%E6%97%A5%E5%B8%82%E5%B8%82%E8%A5%BF%E6%96%B0%E5%9C%B07-3&output=embed&hl=ja&z=16"
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen
               loading="lazy"
