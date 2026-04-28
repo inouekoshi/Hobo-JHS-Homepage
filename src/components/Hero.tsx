@@ -5,7 +5,7 @@ import Countdown from "./Countdown";
 
 const badges = [
   { text: "🎤 特別ゲスト参戦決定！？", delay: 1.2 },
-  { text: "🎁 豪華景品抽選会あり", delay: 1.4 },
+  { text: "🎁 豪華景品も用意！？", delay: 1.4 },
 ];
 
 export default function Hero() {

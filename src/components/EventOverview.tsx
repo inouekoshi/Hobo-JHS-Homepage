@@ -38,7 +38,7 @@ const infoCards = [
   {
     icon: "🎉",
     title: "イベント内容",
-    content: "歓談・近況報告\n豪華景品抽選会 ほか",
+    content: "歓談・近況報告\n豪華景品も用意！？",
     color: "from-rose-500/20 to-rose-600/10",
   },
 ];

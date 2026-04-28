@@ -54,7 +54,14 @@ export default function Access() {
                 <span className="text-amber-400 text-sm">🏨</span>
               </div>
               <div>
-                <p className="text-sm font-bold text-white/90">プラトンホテル四日市</p>
+                <a
+                  href="https://www.platon-hotel.co.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors"
+                >
+                  プラトンホテル四日市 ↗
+                </a>
                 <p className="text-sm text-white/50 mt-0.5">
                   〒510-0087 三重県四日市市西新地7-3
                 </p>

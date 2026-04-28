@@ -33,8 +33,8 @@ export default function Footer() {
 
           {/* Organizer SNS */}
           <div className="space-y-3">
-            <p className="text-xs font-medium text-white/30 tracking-widest uppercase">
-              主催者
+            <p className="text-xs font-medium text-white/40 tracking-widest">
+              主催・管理：井上高志
             </p>
             <div className="flex items-center justify-center gap-4">
               {/* LINE */}
