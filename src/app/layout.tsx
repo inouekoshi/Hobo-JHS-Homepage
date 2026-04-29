@@ -19,8 +19,7 @@ const SITE_URL = "https://hobo-jhs-homepage.vercel.app";
 
 export const metadata: Metadata = {
   title: "保々中学校 新成人同窓会 2027",
-  description:
-    "2027年1月10日開催 保々中学校 新成人同窓会の公式サイト。懐かしい仲間たちと再会しよう。",
+  description: "あの頃の絆を、もう一度。2027年1月10日（日）18:00 開催。",
   keywords: ["保々中学校", "同窓会", "新成人", "2027", "四日市"],
   metadataBase: new URL(SITE_URL),
   openGraph: {
@@ -28,21 +27,12 @@ export const metadata: Metadata = {
     description: "あの頃の絆を、もう一度。2027年1月10日（日）18:00 開催。",
     type: "website",
     url: SITE_URL,
-    images: [
-      {
-        url: "/ogp.png",
-        width: 1200,
-        height: 630,
-        alt: "保々中学校 新成人同窓会 2027",
-      },
-    ],
     locale: "ja_JP",
   },
   twitter: {
     card: "summary_large_image",
     title: "保々中学校 新成人同窓会 2027",
     description: "あの頃の絆を、もう一度。2027年1月10日（日）18:00 開催。",
-    images: ["/ogp.png"],
   },
 };
 
