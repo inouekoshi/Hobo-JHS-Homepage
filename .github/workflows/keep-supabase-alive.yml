@@ -1,0 +1,39 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # 3日に1回、午前0時（UTC）に実行（日本時間午前9時）
+    # これにより1週間の無操作によるSupabaseの一時停止を防ぎます
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # 手動でも実行可能にする
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "Error: SUPABASE_URL or SUPABASE_ANON_KEY is not set in GitHub Secrets."
+            exit 1
+          fi
+          
+          echo "Pinging Supabase to prevent it from pausing..."
+          
+          # REST APIのエンドポイントを叩いてDBアクセスを発生させる
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X GET "$SUPABASE_URL/rest/v1/?limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY")
+            
+          echo "Supabase responded with status: $HTTP_STATUS"
+          
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            echo "✅ Successfully pinged Supabase!"
+          else
+            echo "❌ Failed to ping Supabase. HTTP Status: $HTTP_STATUS"
+            exit 1
+          fi
