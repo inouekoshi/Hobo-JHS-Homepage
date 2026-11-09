@@ -1,70 +1,81 @@
 import { ImageResponse } from "next/og";
+import { COLORS, loadGoogleFont, tornClip } from "@/lib/og";
 
-export const alt = "保々中学校 新成人同窓会 2027";
+export const alt = "保々中学校 新成人同窓会 2027 — 2027年1月10日（日）18:00 開宴／プラトンホテル四日市";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const RED = "#e31b23";
-const BLUE = "#1a33d6";
-const YELLOW = "#f4d21f";
-const INK = "#111111";
-const PAPER = "#f8f8f8";
+const { red: RED, blue: BLUE, yellow: YELLOW, ink: INK, paper: PAPER, kraft: KRAFT } = COLORS;
 
-/** Google Fonts から、使う文字だけに絞った TTF を取ってくる（Satori は woff2 を読めない） */
-async function loadGoogleFont(family: string, text: string) {
-  const url = `https://fonts.googleapis.com/css2?family=${family}&text=${encodeURIComponent(text)}`;
-  const css = await (await fetch(url)).text();
-  const match = css.match(/src: url\((.+?)\) format\('(opentype|truetype)'\)/);
-  if (!match) throw new Error(`failed to load font: ${family}`);
-  return (await fetch(match[1])).arrayBuffer();
-}
+type Letter = [string, string, string, number];
 
-const LINE1: [string, string, string, number][] = [
+const LINE1: Letter[] = [
   ["保", RED, "#fff", -6],
   ["々", "#fff", INK, 4],
   ["中", BLUE, "#fff", -2],
   ["学", YELLOW, INK, 5],
   ["校", INK, "#fff", -4],
 ];
-const LINE2: [string, string, string, number][] = [
+const LINE2: Letter[] = [
   ["新", "#fff", INK, 3],
   ["成", RED, "#fff", -5],
-  ["人", "#f3ebd9", RED, 2],
+  ["人", KRAFT, RED, 2],
   ["同", BLUE, "#fff", -3],
   ["窓", YELLOW, INK, 6],
   ["会", INK, "#fff", -2],
 ];
 
-function Letters({ items, size: fontSize }: { items: typeof LINE1; size: number }) {
+/** 1文字ずつ別の紙から切り抜いて貼ったタイトル（サイトの CollageLogo と同じ配色） */
+function Letters({ items, size: fontSize, seed }: { items: Letter[]; size: number; seed: number }) {
   return (
-    <div style={{ display: "flex", gap: 6 }}>
+    <div style={{ display: "flex", gap: 8 }}>
       {items.map(([ch, bg, color, r], i) => (
-        <div
-          key={i}
-          style={{
-            display: "flex",
-            padding: "6px 10px 10px",
-            background: bg,
-            color,
-            fontSize,
-            lineHeight: 1,
-            transform: `rotate(${r}deg)`,
-            border: bg === "#fff" ? `4px solid ${INK}` : "none",
-            boxShadow: "3px 3px 0 rgba(17,17,17,0.2)",
-          }}
-        >
-          {ch}
+        <div key={i} style={{ display: "flex", transform: `rotate(${r}deg)`, marginTop: (i % 3) * 6 - 6 }}>
+          <div
+            style={{
+              display: "flex",
+              padding: `${fontSize * 0.1}px ${fontSize * 0.14}px ${fontSize * 0.16}px`,
+              background: bg === "#fff" ? INK : bg,
+              clipPath: tornClip(seed + i * 7, 1.6, 6),
+            }}
+          >
+            {/* 白い紙は、黒い縁を残して内側を白で塗る */}
+            <div
+              style={{
+                display: "flex",
+                margin: bg === "#fff" ? -fontSize * 0.06 : 0,
+                padding: bg === "#fff" ? fontSize * 0.06 : 0,
+                background: bg === "#fff" ? "#fff" : "transparent",
+                color,
+                fontFamily: "NotoSansJP",
+                fontSize,
+                lineHeight: 1,
+              }}
+            >
+              {ch}
+            </div>
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
+/** 日付・時刻の大きな数字（Bebas Neue） */
+function BigNum({ text, color }: { text: string; color: string }) {
+  return <div style={{ display: "flex", color, fontFamily: "Bebas", fontSize: 76, lineHeight: 1 }}>{text}</div>;
+}
+
+function Scrap({ style, seed, background }: { style: React.CSSProperties; seed: number; background: string }) {
+  return <div style={{ position: "absolute", display: "flex", background, clipPath: tornClip(seed, 3, 7), ...style }} />;
+}
+
 export default async function Image() {
-  const jpText = "保々中学校新成人同窓会あの頃の絆を、もう一度。プラトンホテル四日市開宴";
-  const [noto, bebas] = await Promise.all([
-    loadGoogleFont("Noto+Sans+JP:wght@900", jpText),
-    loadGoogleFont("Bebas+Neue", "0123456789./:SUNHOBOJHSREUNION "),
+  const jp = "保々中学校新成人同窓会あの頃の絆を、もう一度。プラトンホテル四日市開宴";
+  const [noto, bebas, courier] = await Promise.all([
+    loadGoogleFont("Noto+Sans+JP:wght@900", jp),
+    loadGoogleFont("Bebas+Neue", "0123456789.:HOBOJUNIRGSCLEUN "),
+    loadGoogleFont("Courier+Prime:wght@700", "SUN"),
   ]);
 
   return new ImageResponse(
@@ -77,72 +88,106 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: PAPER,
           position: "relative",
-          fontFamily: "NotoSansJP",
+          background: PAPER,
           color: INK,
+          fontFamily: "NotoSansJP",
         }}
       >
-        {/* 端に貼った紙片 */}
-        <div style={{ position: "absolute", left: -60, top: -40, width: 150, height: 760, background: RED, transform: "rotate(-7deg)" }} />
-        <div
-          style={{
-            position: "absolute",
-            right: -50,
-            top: -50,
-            width: 260,
-            height: 200,
-            transform: "rotate(13deg)",
-            backgroundImage: `repeating-linear-gradient(55deg, ${INK} 0px, ${INK} 12px, ${PAPER} 12px, ${PAPER} 26px)`,
-          }}
+        {/* 画面の端に貼った紙片 */}
+        <Scrap seed={11} background={RED} style={{ left: -70, top: -60, width: 170, height: 780, transform: "rotate(-7deg)" }} />
+        <Scrap
+          seed={23}
+          background={`repeating-linear-gradient(55deg, ${INK} 0px, ${INK} 12px, ${PAPER} 12px, ${PAPER} 27px)`}
+          style={{ right: -60, top: -60, width: 280, height: 210, transform: "rotate(13deg)" }}
         />
-        <div style={{ position: "absolute", right: 60, top: 170, width: 90, height: 70, background: YELLOW, transform: "rotate(-14deg)" }} />
-        <div style={{ position: "absolute", left: 120, bottom: -40, width: 340, height: 90, background: BLUE, transform: "rotate(8deg)" }} />
-        <svg
-          width="64"
-          height="64"
-          viewBox="0 0 24 24"
-          style={{ position: "absolute", right: 120, bottom: 40, transform: "rotate(14deg)" }}
-        >
+        <Scrap seed={5} background={YELLOW} style={{ right: 70, top: 168, width: 96, height: 70, transform: "rotate(-14deg)" }} />
+        <Scrap seed={37} background={BLUE} style={{ left: 150, bottom: -50, width: 360, height: 100, transform: "rotate(7deg)" }} />
+        <Scrap
+          seed={41}
+          background={`radial-gradient(circle, ${BLUE} 28%, transparent 30%)`}
+          style={{ right: 40, bottom: 30, width: 150, height: 110, backgroundSize: "16px 16px", transform: "rotate(-8deg)" }}
+        />
+        <svg width="70" height="70" viewBox="0 0 24 24" style={{ position: "absolute", left: 150, top: 70, transform: "rotate(-14deg)" }}>
+          <path fill={YELLOW} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
+        </svg>
+        <svg width="54" height="54" viewBox="0 0 24 24" style={{ position: "absolute", right: 210, bottom: 150, transform: "rotate(18deg)" }}>
           <path fill={RED} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
         </svg>
 
+        {/* 黒テープの見出し */}
         <div
           style={{
             display: "flex",
-            padding: "8px 28px",
+            padding: "10px 34px 6px",
             background: INK,
             color: "#fff",
             fontFamily: "Bebas",
-            fontSize: 34,
+            fontSize: 32,
             letterSpacing: 3,
             transform: "rotate(-2deg)",
-            marginBottom: 26,
+            clipPath: tornClip(17, 1.2, 14),
+            marginBottom: 22,
           }}
         >
-          HOBO JHS REUNION
+          HOBO JUNIOR HIGH SCHOOL REUNION
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
-          <div style={{ display: "flex", marginLeft: -60 }}>
-            <Letters items={LINE1} size={64} />
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, position: "relative" }}>
+          <div style={{ display: "flex", marginLeft: -70 }}>
+            <Letters items={LINE1} size={62} seed={100} />
           </div>
-          <Letters items={LINE2} size={96} />
+          <Letters items={LINE2} size={96} seed={200} />
+          <div
+            style={{
+              position: "absolute",
+              right: -40,
+              bottom: -26,
+              display: "flex",
+              padding: "6px 18px 2px",
+              background: RED,
+              color: "#fff",
+              fontFamily: "Bebas",
+              fontSize: 54,
+              lineHeight: 1,
+              transform: "rotate(-6deg)",
+              clipPath: tornClip(31, 2, 8),
+            }}
+          >
+            2027
+          </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 26, marginTop: 34 }}>
-          <div style={{ display: "flex", alignItems: "baseline", fontFamily: "Bebas", fontSize: 76, lineHeight: 1 }}>
-            <span style={{ fontFamily: "Bebas" }}>2027.01.10</span>
-            <span style={{ fontSize: 40, color: RED, marginLeft: 12 }}>SUN</span>
-            <span style={{ fontSize: 56, color: BLUE, marginLeft: 22 }}>18:00</span>
+        <div style={{ display: "flex", marginTop: 30, fontSize: 30, letterSpacing: 4 }}>あの頃の絆を、もう一度。</div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 26, marginTop: 22 }}>
+          <div style={{ display: "flex", alignItems: "flex-start" }}>
+            <BigNum text="2027.01.10" color={INK} />
+            <div
+              style={{
+                display: "flex",
+                fontFamily: "Courier",
+                fontSize: 24,
+                color: RED,
+                marginLeft: 8,
+                marginTop: 6,
+              }}
+            >
+              SUN
+            </div>
+            <div style={{ display: "flex", marginLeft: 22 }}>
+              <BigNum text="18:00" color={BLUE} />
+            </div>
+            <div style={{ display: "flex", fontSize: 26, marginLeft: 8, marginTop: 40 }}>開宴</div>
           </div>
           <div
             style={{
               display: "flex",
-              padding: "8px 22px",
+              padding: "10px 26px",
               background: YELLOW,
-              fontSize: 30,
+              fontSize: 28,
               transform: "rotate(2deg)",
+              clipPath: tornClip(53, 1.4, 10),
             }}
           >
             プラトンホテル四日市
@@ -155,6 +200,7 @@ export default async function Image() {
       fonts: [
         { name: "NotoSansJP", data: noto, weight: 900, style: "normal" },
         { name: "Bebas", data: bebas, weight: 400, style: "normal" },
+        { name: "Courier", data: courier, weight: 700, style: "normal" },
       ],
     },
   );

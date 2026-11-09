@@ -40,7 +40,9 @@ Hobo-JHS-Homepage/
 │   ├── app/
 │   │   ├── layout.tsx          # ルートレイアウト（SEO・フォント・SVGフィルタ）
 │   │   ├── page.tsx            # メインページ（全セクション組み合わせ）
-│   │   ├── opengraph-image.tsx # OGP画像の生成
+│   │   ├── opengraph-image.tsx # リンク共有時のプレビュー画像（OGP）の生成
+│   │   ├── icon.tsx            # タブのアイコン（赤い紙片に「保」）
+│   │   ├── apple-icon.tsx      # iPhoneのホーム画面用アイコン
 │   │   └── globals.css         # デザイントークンと共通部品（テープ・カード・ボタン）
 │   ├── components/
 │   │   ├── OpSplash.tsx        # オープニング（あと◯日の数字を紙片で貼る演出）
@@ -58,7 +60,8 @@ Hobo-JHS-Homepage/
 │   │   ├── SvgDefs.tsx         # ちぎれ・破れのSVGフィルタ
 │   │   └── ui.tsx              # テープ・チップ・区切りなどの共通部品
 │   └── lib/
-│       └── event.ts            # 開催日時・残り日数の計算
+│       ├── event.ts            # 開催日時・残り日数の計算
+│       └── og.tsx              # OGP画像・アイコン共通の部品（フォント読込・破れ縁）
 ├── public/
 │   └── op/countdown-digits.webp # カウントダウン用の数字画像
 ├── scripts/

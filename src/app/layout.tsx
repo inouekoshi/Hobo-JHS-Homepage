@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   keywords: ["保々中学校", "同窓会", "新成人", "2027", "四日市"],
   metadataBase: new URL(SITE_URL),
   openGraph: {
+    siteName: TITLE,
     title: TITLE,
     description: DESCRIPTION,
     type: "website",
