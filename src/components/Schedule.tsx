@@ -3,8 +3,7 @@ import { SectionHead, Tape } from "./ui";
 import styles from "./Schedule.module.css";
 
 const PREVIEW = [
-  { time: "18:00", label: "開場・受付" },
-  { time: "18:30", label: "開宴" },
+  { time: "18:00", label: "開宴" },
   { time: "?", label: "and more..." },
 ];
 
