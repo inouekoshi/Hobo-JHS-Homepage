@@ -38,45 +38,6 @@
   color: var(--red);
 }
 
-/* 会費のお知らせ */
-.notice {
-  margin-top: 48px;
-  padding: 30px 20px 22px;
-}
-.noticeTitle {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  font-size: 18px;
-  font-weight: 900;
-}
-.noticeTitle :global(.num) {
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 1;
-  color: var(--red);
-  letter-spacing: 0.04em;
-}
-.noticeList {
-  list-style: none;
-  margin-top: 14px;
-}
-.noticeList li {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 12px 0;
-  border-top: 2px dashed #ccc;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.8;
-}
-.noticeList strong {
-  font-weight: 900;
-  color: var(--blue);
-}
-
 /* 黄色い破れ紙に書いたひとこと */
 .message {
   position: relative;
@@ -116,19 +77,6 @@
   }
   .message {
     font-size: 17px;
-  }
-  .notice {
-    max-width: 860px;
-    margin-inline: auto;
-    padding: 36px 40px 26px;
-  }
-  .noticeList li {
-    flex-direction: row;
-    gap: 20px;
-  }
-  .noticeList strong {
-    flex: none;
-    width: 7.5em;
   }
   .messageStrong {
     font-size: 24px;

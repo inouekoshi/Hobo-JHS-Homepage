@@ -1,54 +1,39 @@
-/* 日付ごとに紙を1枚ずつ貼り、左の縦テープでつなぐ */
-.steps {
-  list-style: none;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding-left: 18px;
-}
-.steps::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 8px;
-  background: var(--yellow);
-  filter: url(#tape-edge);
+.board {
+  padding: 40px 22px 30px;
+  text-align: center;
 }
 
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 16px 18px 14px;
-}
-.final {
-  box-shadow: 5px 5px 0 var(--red);
+.soon {
+  font-family: var(--font-num);
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: 0.08em;
 }
 
-.date {
-  flex: none;
+.note {
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 決まっている開宴時刻だけ先に見せる */
+.start {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 2px dashed #ccc;
   display: flex;
   align-items: flex-start;
-  gap: 2px;
-  min-width: 5.4em;
+  justify-content: center;
+  gap: 4px 6px;
 }
-.date :global(.num) {
-  font-size: 30px;
+.start :global(.num) {
+  font-size: 34px;
   line-height: 1;
   color: var(--blue);
 }
-.final .date :global(.num) {
+.start :global(.num) ~ :global(.num) {
+  margin-left: 10px;
   color: var(--red);
-}
-.dateJp {
-  font-size: 15px;
-  font-weight: 900;
-  line-height: 1.3;
-  color: var(--blue);
 }
 .day {
   font-family: var(--font-day);
@@ -58,60 +43,23 @@
   writing-mode: vertical-rl;
   color: var(--red);
 }
-
-.title {
+.label {
+  align-self: flex-end;
   font-size: 15px;
   font-weight: 900;
-  line-height: 1.5;
-}
-.body {
-  margin-top: 2px;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.board {
-  margin-top: 40px;
-  padding: 36px 22px 28px;
-  text-align: center;
-}
-.soon {
-  font-family: var(--font-num);
-  font-weight: 400;
-  font-size: 24px;
-  letter-spacing: 0.08em;
-}
-.note {
-  margin-top: 16px;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 @media (min-width: 900px) {
-  .steps {
-    gap: 22px;
-    padding-left: 24px;
-  }
-  .step {
-    flex-direction: row;
-    align-items: center;
-    gap: 28px;
-    padding: 18px 26px;
-  }
-  .date :global(.num) {
-    font-size: 38px;
-  }
-  .title {
-    font-size: 17px;
-  }
-  .body {
-    font-size: 14px;
+  .board {
+    padding: 56px 40px 40px;
   }
   .soon {
-    font-size: 30px;
+    font-size: 34px;
   }
   .note {
     font-size: 15px;
+  }
+  .start :global(.num) {
+    font-size: 42px;
   }
 }

@@ -69,13 +69,7 @@ export default function ContactForm() {
           label="CONTACT"
           color="black"
           title="お問い合わせ"
-          lead={
-            <>
-              ご質問やご不明な点がございましたら、お気軽にお問い合わせください。
-              <br />
-              欠席のご連絡は、1月8日（金）正午までに幹事へお知らせください。
-            </>
-          }
+          lead="ご質問やご不明な点がございましたら、お気軽にお問い合わせください。"
         />
       </Reveal>
 
