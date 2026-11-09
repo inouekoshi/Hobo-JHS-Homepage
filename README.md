@@ -37,22 +37,27 @@
 Hobo-JHS-Homepage/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx          # ルートレイアウト（SEO・フォント設定）
+│   │   ├── layout.tsx          # ルートレイアウト（SEO・フォント・SVGフィルタ）
 │   │   ├── page.tsx            # メインページ（全セクション組み合わせ）
 │   │   ├── opengraph-image.tsx # OGP画像の生成
 │   │   └── globals.css         # デザイントークンと共通部品（テープ・カード・ボタン）
-│   └── components/
-│       ├── OpSplash.tsx        # オープニング（あと◯日の数字を紙片で貼る演出）
-│       ├── Header.tsx          # ヘッダー（ナビ・ハンバーガーメニュー）
-│       ├── Hero.tsx            # ヒーローセクション
-│       ├── CollageLogo.tsx     # 1文字ずつ紙を切り貼りしたタイトルロゴ
-│       ├── Countdown.tsx       # カウントダウンタイマー＋祝・開催演出
-│       ├── EventOverview.tsx   # イベント概要（6枚カード）
-│       ├── TeachersMessage.tsx # 恩師へのメッセージ（招待状デザイン）
-│       ├── Schedule.tsx        # 当日スケジュール
-│       ├── Access.tsx          # アクセス・Google Maps
-│       ├── ContactForm.tsx     # お問い合わせフォーム（Formspree連携）
-│       └── Footer.tsx          # フッター（SNSリンク）
+│   ├── components/
+│   │   ├── OpSplash.tsx        # オープニング（あと◯日の数字を紙片で貼る演出）
+│   │   ├── Header.tsx          # ヘッダー（ナビ・ハンバーガーメニュー）
+│   │   ├── Hero.tsx            # ヒーローセクション
+│   │   ├── CollageLogo.tsx     # 1文字ずつ紙を切り貼りしたタイトルロゴ
+│   │   ├── Countdown.tsx       # カウントダウンタイマー＋祝・開催演出
+│   │   ├── EventOverview.tsx   # イベント概要（6枚カード）
+│   │   ├── TeachersMessage.tsx # 恩師へのメッセージ（便箋風カード）
+│   │   ├── Schedule.tsx        # 当日スケジュール
+│   │   ├── Access.tsx          # アクセス・Google Maps
+│   │   ├── ContactForm.tsx     # お問い合わせフォーム（Formspree連携）
+│   │   ├── Footer.tsx          # フッター（SNSリンク）
+│   │   ├── Reveal.tsx          # スクロール登場演出
+│   │   ├── SvgDefs.tsx         # ちぎれ・破れのSVGフィルタ
+│   │   └── ui.tsx              # テープ・チップ・区切りなどの共通部品
+│   └── lib/
+│       └── event.ts            # 開催日時・残り日数の計算
 ├── public/
 │   └── op/countdown-digits.webp # カウントダウン用の数字画像
 ├── scripts/
@@ -60,6 +65,8 @@ Hobo-JHS-Homepage/
 ├── Document/
 │   ├── 要件定義書.md            # 機能要件・コンポーネント設計
 │   └── 要求定義書.md            # プロジェクト目的・ユーザー要件
+├── .github/workflows/
+│   └── keep-supabase-alive.yml # Supabaseの自動停止を防ぐ定期実行
 ├── .env.local.example          # 環境変数サンプル
 └── README.md
 ```
@@ -117,6 +124,8 @@ NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id_here
 
 > **Vercelにデプロイする場合**: Vercel管理画面の **Settings → Environment Variables** に同じ変数を設定してください。
 
+GitHub Actions の定期実行（Supabaseの自動停止防止）には、リポジトリの **Settings → Secrets and variables → Actions** に `SUPABASE_URL` と `SUPABASE_ANON_KEY` を登録してください。
+
 ---
 
 ## 🎨 デザイン仕様
@@ -134,9 +143,10 @@ NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id_here
 
 | セクション | ID | 内容 |
 |---|---|---|
+| オープニング | — | 初回訪問時に「開催まであと◯日」を紙片で貼る演出（ロゴを押すと再生） |
 | ヒーロー | `#top` | キャッチコピー・バッジ・カウントダウン・CTA |
 | イベント概要 | `#overview` | 日時・会場・会費・対象・服装・内容の6カード |
-| 恩師へのメッセージ | `#teachers` | 先生方への招待状（プレミアムデザイン） |
+| 恩師へのメッセージ | `#teachers` | 先生方への招待状（便箋風カード） |
 | スケジュール | `#schedule` | 当日タイムライン（Coming Soon） |
 | アクセス | `#access` | Google Maps ＋ 交通案内 |
 | お問い合わせ | `#contact` | Formspree連携フォーム |
