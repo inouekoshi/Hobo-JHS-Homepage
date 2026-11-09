@@ -1,0 +1,218 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #f5f3ec;
+  overflow: hidden;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  background: #faf9f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4vh;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23777777' filter='url(%23n)' opacity='.3' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+
+/* 画面の端に散らばった紙の切れ端 */
+.offcuts {
+  position: absolute;
+  inset: 0;
+}
+.offcut {
+  position: absolute;
+  clip-path: polygon(2% 3%, 97% 0, 100% 31%, 97% 67%, 99% 96%, 44% 100%, 0 95%, 3% 42%);
+  box-shadow: 2px 3px 1px #0002;
+}
+.offcut0 { width: 9%; height: 8%; left: -4%; top: -3%; background: var(--red); transform: rotate(-30deg); }
+.offcut1 { width: 12%; height: 15%; left: 86%; top: 10%; background: var(--blue); transform: rotate(-11deg); }
+.offcut2 { width: 16%; height: 8%; left: 14%; top: 89%; background: var(--yellow); transform: rotate(8deg); }
+.offcut3 { width: 9%; height: 15%; left: 76%; top: 92%; background: repeating-linear-gradient(35deg, #181818 0 5px, #f6f3e9 5px 11px); transform: rotate(27deg); }
+.offcut4 { width: 12%; height: 8%; left: -4%; top: 66%; background: var(--red); transform: rotate(46deg); }
+.offcut5 { width: 15%; height: 15%; left: 93%; top: 48%; background: var(--blue); transform: rotate(65deg); }
+.offcut6 { width: 8%; height: 8%; left: 32%; top: -5%; background: var(--yellow); transform: rotate(84deg); }
+.offcut7 { width: 12%; height: 15%; left: 62%; top: -9%; background: conic-gradient(var(--ink) 25%, #fff 0 50%, var(--ink) 0 75%, #fff 0) 0 0 / 14px 14px; transform: rotate(103deg); }
+.offcut8 { width: 14%; height: 7%; left: 5%; top: 26%; background: var(--red); transform: rotate(122deg); }
+
+.edge {
+  position: absolute;
+}
+.edgeRed {
+  width: 26%;
+  height: 120%;
+  left: -22%;
+  top: -10%;
+  background: #da2428;
+  clip-path: polygon(0 0, 85% 0, 99% 11%, 94% 24%, 100% 35%, 94% 43%, 98% 51%, 87% 59%, 92% 68%, 79% 77%, 80% 86%, 66% 100%, 0 100%);
+  transform: rotate(-7deg);
+}
+.edgeStripe {
+  width: 22%;
+  height: 38%;
+  right: -12%;
+  top: -14%;
+  background: repeating-linear-gradient(55deg, #161719 0 10px, #faf9f5 10px 23px);
+  transform: rotate(13deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 91%, 14% 70%, 5% 55%, 9% 30%);
+}
+.edgeYellow {
+  width: 8%;
+  height: 12%;
+  right: 2%;
+  top: 18%;
+  background: #efcf28;
+  transform: rotate(-14deg);
+  clip-path: polygon(0 5%, 97% 0, 100% 94%, 3% 100%);
+}
+.edgeBlue {
+  width: 26%;
+  height: 12%;
+  left: -6%;
+  bottom: -6%;
+  background: #202baf;
+  transform: rotate(14deg);
+  clip-path: polygon(0 8%, 96% 0, 100% 90%, 4% 100%);
+}
+
+.eyebrow,
+.unit {
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+}
+.eyebrow :global(.tape) {
+  font-size: clamp(15px, 2.2vw, 24px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  transform: rotate(-2deg);
+}
+
+.digits {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: multiply;
+}
+.digit {
+  position: relative;
+  flex: none;
+  width: var(--digit-size, 30vw);
+  height: var(--digit-size, 30vw);
+  margin: 0 calc(var(--digit-size, 30vw) * -0.065);
+}
+.piece {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: transform, filter, opacity;
+}
+.face {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 500% 200%;
+  mix-blend-mode: multiply;
+}
+
+.unit {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.unitDays {
+  font-family: var(--font-day);
+  font-weight: 700;
+  font-size: clamp(18px, 2.6vw, 30px);
+  letter-spacing: 0.2em;
+  color: var(--blue);
+}
+.unit :global(.tape) {
+  font-family: var(--font-num);
+  font-weight: 400;
+  font-size: clamp(16px, 2.2vw, 24px);
+  letter-spacing: 0.06em;
+  transform: rotate(1.5deg);
+}
+.sun {
+  color: var(--yellow);
+}
+
+.finale,
+.wipe {
+  position: absolute;
+  inset: 0;
+}
+.finale {
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #faf9f5;
+  opacity: 0;
+}
+.finaleLogo {
+  font-size: clamp(34px, 10vw, 104px);
+}
+.finaleCopy {
+  font-size: clamp(15px, 2.4vw, 22px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  opacity: 0;
+}
+.wipe {
+  z-index: 5;
+  pointer-events: none;
+  background: #f1d12c;
+  transform: translateY(115%) rotate(-8deg);
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 85% 100%, 63% 95%, 49% 100%, 30% 96%, 10% 99%, 0 95%);
+}
+
+.skip {
+  position: absolute;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 6;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  transform: rotate(-2deg);
+  transition: transform 0.15s;
+}
+.skip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  filter: url(#tape-edge);
+}
+.skip:hover {
+  transform: rotate(2deg) scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .edgeRed { left: -30%; width: 42%; }
+  .edgeStripe { width: 40%; right: -22%; }
+  .edgeYellow { width: 16%; }
+  .edgeBlue { width: 50%; }
+  .unit { flex-direction: column; gap: 10px; }
+}

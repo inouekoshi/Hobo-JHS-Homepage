@@ -1,0 +1,159 @@
+.countdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.eyebrow {
+  margin-bottom: 6px;
+}
+.eyebrow :global(.tape) {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  transform: rotate(-2deg);
+}
+
+.unit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.digits {
+  display: flex;
+  mix-blend-mode: multiply;
+}
+
+.digit {
+  display: block;
+  width: var(--d);
+  height: var(--d);
+  margin: 0 calc(var(--d) * -0.06);
+  background-repeat: no-repeat;
+  background-size: 500% 200%;
+  transform: rotate(var(--tilt, 0deg));
+  animation: paste 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 新しい数字の紙が上から落ちてきて、つぶれてから貼り付く */
+@keyframes paste {
+  0% {
+    opacity: 0;
+    transform: translate(4%, -16%) rotate(calc(var(--tilt, 0deg) + 10deg)) scale(1.28);
+    filter: drop-shadow(6px 10px 3px #0004);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(1%) rotate(var(--tilt, 0deg)) scale(1.06, 0.92);
+    filter: drop-shadow(0 1px 0 #0003);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--tilt, 0deg));
+    filter: none;
+  }
+}
+
+/* 数字が来る前の空の台紙 */
+.blank {
+  animation: none;
+  border: 2px dashed rgba(17, 17, 17, 0.18);
+  transform: scale(0.8);
+}
+
+.lg {
+  --d: clamp(92px, 30vw, 150px);
+}
+.sm {
+  --d: clamp(32px, 9vw, 46px);
+}
+
+.label {
+  font-family: var(--font-day);
+  font-weight: 700;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.06em;
+}
+.lg .label {
+  font-size: 18px;
+  color: var(--red);
+  margin-left: 6px;
+}
+.sm .label {
+  font-size: 11px;
+  color: var(--blue);
+}
+
+.hms {
+  display: flex;
+  gap: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digit {
+    animation: none;
+  }
+}
+
+/* ===== 開催時の「祝・開催」 ===== */
+.celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: rgba(248, 248, 248, 0.94);
+  overflow: hidden;
+  cursor: pointer;
+}
+.confetti {
+  position: absolute;
+  top: 0;
+  clip-path: polygon(4% 0, 100% 8%, 94% 100%, 0 90%);
+}
+.celebrationBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 36px 28px 30px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  text-align: center;
+}
+.celebrationTitle {
+  display: flex;
+  gap: 6px;
+  font-size: clamp(48px, 14vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+}
+.celebrationTitle span {
+  padding: 0.08em 0.1em;
+}
+.c0 {
+  background: var(--red);
+  color: #fff;
+  transform: rotate(-6deg);
+}
+.c1 {
+  color: var(--ink);
+}
+.c2 {
+  background: var(--yellow);
+  transform: rotate(4deg);
+}
+.c3 {
+  background: var(--blue);
+  color: #fff;
+  transform: rotate(-3deg);
+}
+.celebrationText {
+  font-weight: 900;
+  font-size: 16px;
+}

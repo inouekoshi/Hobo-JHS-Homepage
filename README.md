@@ -22,9 +22,9 @@
 
 | カテゴリ | 技術 |
 |---|---|
-| フレームワーク | Next.js 16 (App Router) |
-| スタイリング | Tailwind CSS v4 |
-| アニメーション | Framer Motion |
+| フレームワーク | Next.js 16.4 (App Router) / React 19.3 |
+| スタイリング | CSS Modules + グローバルCSS |
+| アニメーション | Motion（旧 Framer Motion）、Web Animations API |
 | フォーム送信 | Formspree |
 | デプロイ | Vercel |
 | 言語 | TypeScript |
@@ -39,10 +39,13 @@ Hobo-JHS-Homepage/
 │   ├── app/
 │   │   ├── layout.tsx          # ルートレイアウト（SEO・フォント設定）
 │   │   ├── page.tsx            # メインページ（全セクション組み合わせ）
-│   │   └── globals.css         # グローバルスタイル
+│   │   ├── opengraph-image.tsx # OGP画像の生成
+│   │   └── globals.css         # デザイントークンと共通部品（テープ・カード・ボタン）
 │   └── components/
+│       ├── OpSplash.tsx        # オープニング（あと◯日の数字を紙片で貼る演出）
 │       ├── Header.tsx          # ヘッダー（ナビ・ハンバーガーメニュー）
 │       ├── Hero.tsx            # ヒーローセクション
+│       ├── CollageLogo.tsx     # 1文字ずつ紙を切り貼りしたタイトルロゴ
 │       ├── Countdown.tsx       # カウントダウンタイマー＋祝・開催演出
 │       ├── EventOverview.tsx   # イベント概要（6枚カード）
 │       ├── TeachersMessage.tsx # 恩師へのメッセージ（招待状デザイン）
@@ -51,7 +54,9 @@ Hobo-JHS-Homepage/
 │       ├── ContactForm.tsx     # お問い合わせフォーム（Formspree連携）
 │       └── Footer.tsx          # フッター（SNSリンク）
 ├── public/
-│   └── ogp.png                 # OGP画像（SNSシェア用）
+│   └── op/countdown-digits.webp # カウントダウン用の数字画像
+├── scripts/
+│   └── generate-countdown-digits.py # 数字画像の生成スクリプト
 ├── Document/
 │   ├── 要件定義書.md            # 機能要件・コンポーネント設計
 │   └── 要求定義書.md            # プロジェクト目的・ユーザー要件
@@ -64,7 +69,7 @@ Hobo-JHS-Homepage/
 ## 🚀 ローカル開発
 
 ### 必要環境
-- Node.js 18以上
+- Node.js 20.9以上
 - npm
 
 ### セットアップ
@@ -116,10 +121,11 @@ NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id_here
 
 ## 🎨 デザイン仕様
 
-- **カラーパレット**: ダークネイビー（`#050510`〜`#0a1628`）× ゴールド（`#f59e0b`）
-- **フォント**: Noto Sans JP（日本語） / Inter（英数字）
-- **スタイル**: Glassmorphism（ガラス質カード）
-- **アニメーション**: Framer Motion（スクロール連動フェードイン・フリップカウントダウン・招待状展開）
+- **スタイル**: 切り貼り（コラージュ）／ZINE風。紙の地に、ちぎれたテープとハードシャドウの紙片を重ねます
+- **カラーパレット**: 赤 `#e31b23`・青 `#1a33d6`・黄 `#f4d21f`・墨 `#111111`・紙 `#f8f8f8`
+- **フォント**: Noto Sans JP（本文）/ Bebas Neue（数字・英字見出し）/ Murecho（ロゴ）/ Courier Prime（曜日・単位）
+- **アニメーション**: 初回訪問時のオープニング、紙片が傾きながら貼られるスクロール演出、数字が変わるたびに貼り直されるカウントダウン
+- **カウントダウンの数字画像**: `scripts/generate-countdown-digits.py` で生成しています（フォントは OFL の Archivo Black）
 - **レスポンシブ**: モバイルファースト（iPhoneでの閲覧を最優先）
 
 ---
@@ -128,7 +134,7 @@ NEXT_PUBLIC_FORMSPREE_ID=your_formspree_form_id_here
 
 | セクション | ID | 内容 |
 |---|---|---|
-| ヒーロー | `#hero` | キャッチコピー・バッジ・カウントダウン・CTA |
+| ヒーロー | `#top` | キャッチコピー・バッジ・カウントダウン・CTA |
 | イベント概要 | `#overview` | 日時・会場・会費・対象・服装・内容の6カード |
 | 恩師へのメッセージ | `#teachers` | 先生方への招待状（プレミアムデザイン） |
 | スケジュール | `#schedule` | 当日タイムライン（Coming Soon） |

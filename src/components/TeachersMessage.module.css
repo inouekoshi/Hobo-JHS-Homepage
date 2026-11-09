@@ -1,0 +1,114 @@
+.letter {
+  padding: 40px 22px 30px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+/* 便箋を留めるテープ */
+.tapeLeft,
+.tapeRight {
+  position: absolute;
+  width: 92px;
+  height: 22px;
+  filter: url(#tape-edge);
+  opacity: 0.92;
+}
+.tapeLeft {
+  left: -18px;
+  bottom: 22px;
+  background: var(--blue);
+  transform: rotate(-38deg);
+}
+.tapeRight {
+  right: -16px;
+  top: 18px;
+  background: var(--yellow);
+  transform: rotate(32deg);
+}
+.star {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.title::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 7px;
+  margin: 10px auto 0;
+  background: var(--red);
+  filter: url(#tape-edge);
+  transform: rotate(-2deg);
+}
+
+.body {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 2;
+}
+
+/* 強調はマーカーで引いた黄色の帯 */
+.highlight {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+}
+.highlight span {
+  background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 92%, transparent 92%);
+  padding: 0 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.sign {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 朱色の落款風スタンプ */
+.hanko {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: -0.05em;
+  transform: rotate(-12deg);
+  opacity: 0.88;
+  filter: url(#tape-edge);
+}
+
+@media (min-width: 900px) {
+  .letter {
+    padding: 56px 64px 40px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .body {
+    font-size: 16px;
+    text-align: center;
+  }
+  .highlight {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,188 @@
+.logo {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.18em;
+  padding: 0.5em 0.6em 0.7em;
+  font-size: clamp(30px, 9.5vw, 84px);
+  line-height: 1;
+  isolation: isolate;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  gap: 0.04em;
+}
+
+.line1 {
+  font-size: 0.66em;
+  margin-left: -0.6em;
+}
+
+.letter {
+  display: inline-block;
+  padding: 0.1em 0.12em 0.12em;
+  font-weight: 900;
+  font-family: var(--font-body);
+  transform: rotate(var(--r));
+  filter: drop-shadow(2px 2px 0 rgba(17, 17, 17, 0.18));
+}
+
+.animate .letter {
+  animation: letter-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.12s + var(--i) * 0.055s);
+}
+
+/* OP 再生中は止めておき、OPが閉じてから貼り始める */
+:global(html[data-op]) .animate .letter,
+:global(html[data-op]) .animate .year {
+  animation-play-state: paused;
+}
+
+@keyframes letter-in {
+  0% {
+    opacity: 0;
+    transform: translate(-0.08em, -0.25em) rotate(calc(var(--r) * 3)) scale(1.3);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0.02em) rotate(var(--r)) scale(1.06, 0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--r));
+  }
+}
+
+.red {
+  background: var(--red);
+  color: #fff;
+}
+.blue {
+  background: var(--blue);
+  color: #fff;
+}
+.yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.black {
+  background: var(--ink);
+  color: #fff;
+}
+.white {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 0.05em var(--ink);
+}
+.kraft {
+  background: var(--kraft);
+  color: var(--red);
+  box-shadow: inset 0 0 0 0.04em rgba(17, 17, 17, 0.15);
+}
+
+.year {
+  position: absolute;
+  right: -0.1em;
+  bottom: -0.05em;
+  z-index: 2;
+  padding: 0.04em 0.3em 0;
+  font-family: var(--font-num);
+  font-size: 0.6em;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transform: rotate(-6deg);
+}
+.year::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--red);
+  filter: url(#tape-edge);
+}
+.animate .year {
+  animation: year-in 0.5s cubic-bezier(0.2, 1.4, 0.4, 1) 0.85s both;
+}
+@keyframes year-in {
+  from {
+    opacity: 0;
+    transform: rotate(-20deg) scale(1.6);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-6deg);
+  }
+}
+
+/* 背後に散らした紙片と星 */
+.scraps {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.scrap {
+  position: absolute;
+  clip-path: polygon(2% 3%, 97% 0, 100% 31%, 97% 67%, 99% 96%, 44% 100%, 0 95%, 3% 42%);
+}
+.scrapStripe {
+  left: -2%;
+  top: 4%;
+  width: 22%;
+  height: 34%;
+  background: repeating-linear-gradient(35deg, var(--ink) 0 5px, #fff 5px 11px);
+  transform: rotate(-12deg);
+}
+.scrapCheck {
+  right: 2%;
+  top: -2%;
+  width: 16%;
+  height: 30%;
+  background:
+    conic-gradient(var(--blue) 25%, #fff 0 50%, var(--blue) 0 75%, #fff 0) 0 0 / 14px 14px;
+  transform: rotate(9deg);
+}
+.scrapDots {
+  left: 8%;
+  bottom: 0;
+  width: 18%;
+  height: 26%;
+  background: radial-gradient(circle, var(--red) 32%, transparent 34%) 0 0 / 10px 10px, #fff;
+  transform: rotate(6deg);
+}
+.star {
+  position: absolute;
+  font-family: var(--font-num);
+  line-height: 1;
+}
+.star1 {
+  left: 0;
+  bottom: 30%;
+  font-size: 0.32em;
+  color: var(--red);
+  transform: rotate(-14deg);
+}
+.star2 {
+  right: 10%;
+  top: 30%;
+  font-size: 0.24em;
+  color: var(--yellow);
+  transform: rotate(18deg);
+}
+.star3 {
+  left: 30%;
+  top: -0.05em;
+  font-size: 0.22em;
+  color: var(--blue);
+  transform: rotate(8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate .letter,
+  .animate .year {
+    animation: none;
+  }
+}

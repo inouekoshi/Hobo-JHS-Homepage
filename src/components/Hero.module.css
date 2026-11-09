@@ -1,0 +1,211 @@
+.hero {
+  position: relative;
+  max-width: var(--content-sp);
+  margin: 0 auto;
+  padding: 36px 20px 40px;
+  text-align: center;
+}
+
+.banner {
+  font-family: var(--font-num);
+  font-weight: 400;
+  font-size: clamp(14px, 3.8vw, 19px);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  animation: rise 0.6s ease-out both;
+}
+
+.title {
+  font-size: inherit;
+}
+.title :global(.replay):hover {
+  transform: scale(1.015);
+}
+.title :global(.replay):active {
+  transform: scale(0.99);
+}
+
+.catch {
+  margin-top: 4px;
+  font-weight: 900;
+  font-size: clamp(18px, 5.4vw, 30px);
+  letter-spacing: 0.06em;
+  animation: rise 0.6s ease-out 0.5s both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+:global(html[data-op]) .banner,
+:global(html[data-op]) .catch,
+:global(html[data-op]) .lower {
+  animation-play-state: paused;
+}
+
+.lower {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  animation: rise 0.6s ease-out 0.7s both;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date {
+  display: flex;
+  align-items: baseline;
+  gap: 0.12em;
+  line-height: 1;
+}
+.year {
+  font-size: clamp(24px, 7vw, 36px);
+}
+.dayBlock {
+  position: relative;
+  font-size: clamp(56px, 18vw, 92px);
+  letter-spacing: -0.01em;
+  margin-right: 0.45em;
+}
+/* 縦書きの曜日。支点を日付の右端から少し右へ逃がして、数字と重ならないようにする */
+.day {
+  position: absolute;
+  left: 100%;
+  top: 0.05em;
+  margin-left: 1.15em;
+  font-family: var(--font-day);
+  font-weight: 700;
+  font-size: 0.3em;
+  line-height: 1;
+  color: var(--red);
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  white-space: nowrap;
+}
+
+.time {
+  margin-top: 8px;
+  font-weight: 900;
+  font-size: clamp(18px, 5vw, 24px);
+}
+.time :global(.num) {
+  font-weight: 400;
+  font-size: 1.35em;
+  color: var(--blue);
+  margin-right: 0.15em;
+}
+
+.venue {
+  margin-top: 2px;
+  font-weight: 700;
+  font-size: clamp(15px, 4.2vw, 19px);
+}
+
+.badges {
+  list-style: none;
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+}
+.badges :global(.chip) {
+  font-size: 13px;
+}
+
+.cta {
+  margin-top: 26px;
+}
+
+/* カウントダウンを、写真のように枠に入れて貼る */
+.frameWrap {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 14px 10px 0 12px;
+}
+.frame {
+  position: relative;
+  background: #fff;
+  border: 2px solid var(--ink);
+  padding: 22px 12px 26px;
+  transform: rotate(1.5deg);
+  box-shadow: 6px 6px 0 var(--blue);
+}
+.framePattern {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  opacity: 0.85;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.frameTape {
+  position: absolute;
+  z-index: 2;
+  filter: url(#tape-edge);
+}
+.frameTapeBlue {
+  top: 4px;
+  left: 16%;
+  width: 40%;
+  height: 16px;
+  background: var(--blue);
+  transform: rotate(-5deg);
+}
+.frameTapeYellow {
+  top: 30px;
+  left: 0;
+  width: 16px;
+  height: 34px;
+  background: var(--yellow);
+  transform: rotate(-4deg);
+}
+.frameStar {
+  position: absolute;
+  z-index: 2;
+  top: -4px;
+  right: 12%;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    max-width: var(--content-wide);
+    padding: 44px 24px 64px;
+  }
+  .lower {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+    margin-top: 34px;
+  }
+  .info {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .badges {
+    justify-content: flex-start;
+  }
+  .frameWrap {
+    width: 420px;
+    max-width: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .catch,
+  .lower {
+    animation: none;
+  }
+}

@@ -1,0 +1,269 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* iOS Safari のツールバー伸縮中に上へ覗く本文を、ヘッダーの地を伸ばして塞ぐ */
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 240px;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+/* ===== PC ===== */
+.pc {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .header {
+    background: var(--paper);
+  }
+
+  .pc {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1325px;
+    margin: 0 auto;
+    height: var(--header-height-pc);
+    padding: 18px 24px 0;
+    transition:
+      height 0.18s ease,
+      padding 0.18s ease;
+  }
+
+  .shrunk .pc {
+    align-items: center;
+    height: var(--header-height-pc-shrunk);
+    padding-top: 0;
+  }
+
+  .shrunk .logo {
+    flex-direction: row;
+    gap: 0.3em;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .shrunk nav a {
+    --nav-pad-y: 6px;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.05;
+  color: var(--ink);
+  transition: font-size 0.18s ease;
+}
+
+.pc ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.pc li {
+  display: flex;
+  align-items: center;
+}
+
+.pc nav a {
+  display: block;
+  position: relative;
+  /* 赤テープの位置はこの値から導出する。上下paddingは必ずこの変数で変える */
+  --nav-pad-y: 12px;
+  padding: var(--nav-pad-y) 14px;
+  font-family: var(--font-num);
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  transition: padding 0.18s ease;
+}
+
+.pc nav a::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: calc(var(--nav-pad-y) - 6px);
+  height: 6px;
+  background: var(--red);
+  filter: url(#tape-edge);
+  opacity: 0;
+  transform: scaleX(0.8);
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+
+.pc nav a:hover::after,
+.pc nav a[aria-current]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.tick {
+  width: 1px;
+  height: 14px;
+  background: #ccc;
+}
+
+/* ===== SP ===== */
+.sp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: var(--header-offset-sp);
+  padding: var(--safe-top) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+
+.logoSp {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .sp {
+    display: none;
+  }
+}
+
+/* 三本線をテープ3枚で。開くとそのまま ✕ になって閉じるボタンを兼ねる */
+.hamburger {
+  position: relative;
+  width: 32px;
+  height: 26px;
+  flex: 0 0 auto;
+  z-index: 210;
+}
+.bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--ink);
+  filter: url(#tape-edge);
+  transition:
+    transform 0.25s,
+    opacity 0.25s;
+}
+.b1 {
+  top: 2px;
+}
+.b2 {
+  top: 10.5px;
+  background: var(--red);
+}
+.b3 {
+  top: 19px;
+}
+.isOpen .b1 {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.isOpen .b2 {
+  opacity: 0;
+}
+.isOpen .b3 {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 205;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 32px;
+  background: var(--paper);
+  overflow: hidden;
+}
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.menu a {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  padding: 6px 20px;
+  font-family: var(--font-num);
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.menu a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  filter: url(#tape-edge);
+}
+.menu a[aria-current]::before {
+  background: var(--yellow);
+}
+.menuDeco {
+  position: absolute;
+  clip-path: polygon(2% 3%, 97% 0, 100% 31%, 97% 67%, 99% 96%, 44% 100%, 0 95%, 3% 42%);
+}
+.decoCheck {
+  right: -30px;
+  top: 18%;
+  width: 120px;
+  height: 90px;
+  background: conic-gradient(var(--blue) 25%, #fff 0 50%, var(--blue) 0 75%, #fff 0) 0 0 / 16px 16px;
+  transform: rotate(12deg);
+}
+.decoStripe {
+  right: 20px;
+  bottom: 8%;
+  width: 90px;
+  height: 120px;
+  background: repeating-linear-gradient(35deg, var(--ink) 0 6px, #fff 6px 13px);
+  transform: rotate(-9deg);
+}
+.menuStar {
+  position: absolute;
+  right: 40%;
+  bottom: 14%;
+  font-family: var(--font-num);
+  font-size: 38px;
+  color: var(--red);
+  transform: rotate(14deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc,
+  .logo,
+  .pc nav a,
+  .pc nav a::after,
+  .bar {
+    transition: none;
+  }
+}

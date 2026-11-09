@@ -1,0 +1,110 @@
+.form {
+  padding: 34px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field label {
+  font-size: 14px;
+  font-weight: 900;
+}
+.req {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--red);
+  transform: rotate(-3deg);
+  vertical-align: 1px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s,
+    background 0.15s;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.7;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9a9a9a;
+  font-weight: 400;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--blue);
+  transform: translate(-1px, -1px);
+}
+
+.error {
+  padding: 10px 14px;
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 700;
+  background: #fff;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+.submit :global(.btn) {
+  padding: 14px 56px;
+  font-size: 16px;
+}
+
+.done {
+  padding: 40px 22px 34px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.9;
+}
+.doneTape {
+  font-family: var(--font-num);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+.doneTitle {
+  margin: 20px 0 8px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+@media (min-width: 900px) {
+  .form {
+    padding: 44px 44px 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field input,
+  .field textarea {
+    transition: none;
+  }
+}
