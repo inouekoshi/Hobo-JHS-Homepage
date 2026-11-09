@@ -1,60 +1,115 @@
-.board {
-  padding: 40px 22px 30px;
-  text-align: center;
+/* 日付ごとに紙を1枚ずつ貼り、左の縦テープでつなぐ */
+.steps {
+  list-style: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-left: 18px;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 8px;
+  background: var(--yellow);
+  filter: url(#tape-edge);
 }
 
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 18px 14px;
+}
+.final {
+  box-shadow: 5px 5px 0 var(--red);
+}
+
+.date {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 5.4em;
+}
+.date :global(.num) {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--blue);
+}
+.final .date :global(.num) {
+  color: var(--red);
+}
+.dateJp {
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--blue);
+}
+.day {
+  font-family: var(--font-day);
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  writing-mode: vertical-rl;
+  color: var(--red);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.body {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.board {
+  margin-top: 40px;
+  padding: 36px 22px 28px;
+  text-align: center;
+}
 .soon {
   font-family: var(--font-num);
   font-weight: 400;
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 0.08em;
 }
-
 .note {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 14px;
   font-weight: 700;
-}
-
-.timeline {
-  list-style: none;
-  margin: 28px auto 0;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  opacity: 0.45;
-}
-.timeline li {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 14px;
-}
-.time {
-  font-size: 24px;
-  line-height: 1;
-  color: var(--blue);
-  width: 2.6em;
-  flex: none;
-  text-align: left;
-}
-.dots {
-  flex: 1;
-  border-bottom: 2px dashed currentColor;
-  transform: translateY(-4px);
-}
-.label {
-  white-space: nowrap;
 }
 
 @media (min-width: 900px) {
-  .board {
-    padding: 56px 40px 40px;
+  .steps {
+    gap: 22px;
+    padding-left: 24px;
+  }
+  .step {
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+    padding: 18px 26px;
+  }
+  .date :global(.num) {
+    font-size: 38px;
+  }
+  .title {
+    font-size: 17px;
+  }
+  .body {
+    font-size: 14px;
   }
   .soon {
-    font-size: 34px;
+    font-size: 30px;
   }
   .note {
     font-size: 15px;

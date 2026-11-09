@@ -13,7 +13,8 @@
 | イベント名 | 保々中学校 新成人同窓会 |
 | 開催日時 | 2027年1月10日（日）18:00 開宴 |
 | 会場 | [プラトンホテル四日市](https://www.platon-hotel.co.jp/)（〒510-0087 三重県四日市市西新地7-3） |
-| 会費 | 10,000円（恩師の先生方は無料） |
+| 参加人数 | 卒業生 48名 ＋ 恩師の先生方 4名（出欠の回答は締切済み） |
+| 会費 | 10,000円。12月6日（日）までに事前振込（恩師の先生方は無料） |
 | 主催・管理 | 井上高志 |
 
 ---
@@ -49,10 +50,10 @@ Hobo-JHS-Homepage/
 │   │   ├── Countdown.tsx       # カウントダウンタイマー＋祝・開催演出
 │   │   ├── EventOverview.tsx   # イベント概要（6枚カード）
 │   │   ├── TeachersMessage.tsx # 恩師へのメッセージ（便箋風カード）
-│   │   ├── Schedule.tsx        # 当日スケジュール
+│   │   ├── Schedule.tsx        # 当日までのスケジュール
 │   │   ├── Access.tsx          # アクセス・Google Maps
 │   │   ├── ContactForm.tsx     # お問い合わせフォーム（Formspree連携）
-│   │   ├── Footer.tsx          # フッター（SNSリンク）
+│   │   ├── Footer.tsx          # フッター
 │   │   ├── Reveal.tsx          # スクロール登場演出
 │   │   ├── SvgDefs.tsx         # ちぎれ・破れのSVGフィルタ
 │   │   └── ui.tsx              # テープ・チップ・区切りなどの共通部品
@@ -145,9 +146,9 @@ GitHub Actions の定期実行（Supabaseの自動停止防止）には、リポ
 |---|---|---|
 | オープニング | — | 初回訪問時に「開催まであと◯日」を紙片で貼る演出（ロゴを押すと再生） |
 | ヒーロー | `#top` | キャッチコピー・バッジ・カウントダウン・CTA |
-| イベント概要 | `#overview` | 日時・会場・会費・対象・服装・内容の6カード |
+| イベント概要 | `#overview` | 日時・会場・会費・参加者・服装・内容の6カードと、会費のお支払いについて |
 | 恩師へのメッセージ | `#teachers` | 先生方への招待状（便箋風カード） |
-| スケジュール | `#schedule` | 当日タイムライン（Coming Soon） |
+| スケジュール | `#schedule` | 振込締切・返金期限・当日までの流れ（当日のタイムテーブルは Coming Soon） |
 | アクセス | `#access` | Google Maps ＋ 交通案内 |
 | お問い合わせ | `#contact` | Formspree連携フォーム |
 
@@ -167,14 +168,7 @@ git push origin main
 
 ## 📝 今後の予定
 
-- [ ] 当日スケジュールの詳細更新（タイムライン確定後）
+- [ ] 当日のタイムテーブルを掲載（確定後）
 - [ ] フォトギャラリーページ（イベント後）
 - [ ] SNS認証ログイン（NextAuth.js）
 - [ ] LINE / X（Twitter）共有ボタン
-
----
-
-## 📞 連絡先
-
-- **LINE**: [https://line.me/ti/p/_eOAwVUtl4](https://line.me/ti/p/_eOAwVUtl4)
-- **Instagram**: [@i_noueeeee](https://www.instagram.com/i_noueeeee)

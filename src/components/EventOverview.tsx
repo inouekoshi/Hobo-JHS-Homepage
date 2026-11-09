@@ -11,11 +11,32 @@ const INFO = [
     tape: "blue",
     rotate: 0.9,
   },
-  { en: "FEE", title: "会費", body: "10,000円", note: "※恩師の先生方からは徴収いたしません", tape: "yellow", rotate: -0.6 },
-  { en: "WHO", title: "対象", body: "保々中学校 卒業生\n（新成人世代）", tape: "blue", rotate: 0.7 },
+  {
+    en: "FEE",
+    title: "会費",
+    body: "10,000円\n12月6日（日）までに事前振込",
+    note: "※恩師の先生方からは徴収いたしません",
+    tape: "yellow",
+    rotate: -0.6,
+  },
+  { en: "WHO", title: "参加者", body: "保々中学校 卒業生 48名\n＋ 恩師の先生方 4名", tape: "blue", rotate: 0.7 },
   { en: "DRESS", title: "服装", body: "自由\n（成人式の振袖・スーツもOK）", tape: "yellow", rotate: -0.9 },
-  { en: "EVENT", title: "イベント内容", body: "歓談・近況報告\n豪華景品も用意！？", tape: "red", rotate: 0.6 },
+  {
+    en: "EVENT",
+    title: "イベント内容",
+    body: "食事＋飲み放題の同窓会プラン\nビンゴ大会も開催！",
+    tape: "red",
+    rotate: 0.6,
+  },
 ] as const;
+
+const NOTICE = [
+  { head: "振込締切", body: "12月6日（日）までに専用口座へお振込みください。振込が済んだ時点で出席確定です。" },
+  { head: "振込先", body: "出席者の皆さんへ LINE で個別にご案内します。振込名義は、案内に書かれた番号＋フルネームでお願いします。" },
+  { head: "期限を過ぎたら", body: "12月6日までにお振込みがない場合は、欠席扱いとさせていただきます。" },
+  { head: "キャンセル", body: "1月8日（金）正午までに欠席のご連絡をいただければ全額返金します。それ以降は料理代がかかるため返金できません。" },
+  { head: "手数料", body: "振込手数料は各自でご負担ください。" },
+];
 
 const EN_COLOR = { red: "var(--red)", blue: "var(--blue)", yellow: "var(--ink)" } as const;
 
@@ -27,7 +48,7 @@ export default function EventOverview() {
           label="EVENT INFO"
           color="black"
           title="イベント概要"
-          lead="懐かしい仲間たちと過ごす、特別な一夜の詳細をご案内します。"
+          lead="出欠の回答は締め切りました。たくさんの回答、ありがとうございました！"
         />
       </Reveal>
 
@@ -48,6 +69,23 @@ export default function EventOverview() {
           </li>
         ))}
       </ul>
+
+      <Reveal rotate={-0.6} delay={0.05}>
+        <div className={`card ${styles.notice}`}>
+          <span className="corner-tape red" aria-hidden="true" />
+          <h3 className={styles.noticeTitle}>
+            <span className="num">NOTICE</span>会費のお支払いについて
+          </h3>
+          <ul className={styles.noticeList}>
+            {NOTICE.map((item) => (
+              <li key={item.head}>
+                <strong>{item.head}</strong>
+                <span>{item.body}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
 
       <Reveal rotate={1} delay={0.1}>
         <div className={styles.message}>

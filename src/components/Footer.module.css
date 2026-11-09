@@ -27,66 +27,7 @@
   font-size: 15px;
 }
 
-.organizer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-.label {
-  font-size: 12px;
-  font-weight: 700;
-  opacity: 0.75;
-}
-
-.sns {
-  list-style: none;
-  display: flex;
-  gap: 14px;
-}
-.sns a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  z-index: 0;
-  padding: 9px 18px;
-  font-weight: 800;
-  font-size: 14px;
-  transition: transform 0.15s;
-}
-.sns a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  filter: url(#tape-edge);
-}
-.line {
-  color: #fff;
-  transform: rotate(-2deg);
-}
-.line::before {
-  background: #06c755;
-}
-.insta {
-  color: var(--ink);
-  transform: rotate(1.5deg);
-}
-.insta::before {
-  background: #fff;
-}
-.sns a:hover {
-  transform: rotate(0deg) scale(1.05);
-}
-
 .copyright {
   font-size: 11px;
   opacity: 0.6;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sns a {
-    transition: none;
-  }
 }

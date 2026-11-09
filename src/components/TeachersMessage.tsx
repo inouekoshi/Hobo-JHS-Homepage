@@ -27,6 +27,7 @@ export default function TeachersMessage() {
             </p>
             <p className={styles.highlight}>
               <span>先生方は「特別招待」としてお迎えいたします。</span>
+              <span className={styles.sub}>会費はいただきません。</span>
             </p>
             <p>
               ご多忙中とは存じますが、

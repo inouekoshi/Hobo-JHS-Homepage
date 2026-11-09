@@ -63,6 +63,12 @@
   font-size: 17px;
   font-weight: 900;
 }
+.highlight span.sub {
+  display: block;
+  margin-top: 4px;
+  background: none;
+  font-size: 0.85em;
+}
 .highlight span {
   background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 92%, transparent 92%);
   padding: 0 0.15em;

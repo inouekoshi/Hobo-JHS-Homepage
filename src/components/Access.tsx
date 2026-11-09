@@ -63,6 +63,14 @@ export default function Access() {
                 </dt>
                 <dd>ホテル提携駐車場あり（詳細はホテルへお問い合わせください）</dd>
               </div>
+              <div>
+                <dt>
+                  <Chip color="yellow" rotate={-1}>
+                    ご注意
+                  </Chip>
+                </dt>
+                <dd>飲み放題プランです。お酒を飲む方は、電車などの公共交通機関でお越しください。</dd>
+              </div>
             </dl>
           </div>
         </Reveal>
