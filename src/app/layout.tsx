@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Courier_Prime, Murecho, Noto_Sans_JP } from "next/font/google";
 import SvgDefs from "@/components/SvgDefs";
@@ -90,6 +91,8 @@ export default function RootLayout({
       <body>
         <SvgDefs />
         {children}
+        {/* 閲覧数・訪問者数を Vercel Web Analytics で計測する（Cookie は使わない） */}
+        <Analytics />
       </body>
     </html>
   );

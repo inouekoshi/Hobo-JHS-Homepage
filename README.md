@@ -27,6 +27,7 @@
 | スタイリング | CSS Modules + グローバルCSS |
 | アニメーション | Motion（旧 Framer Motion）、Web Animations API |
 | フォーム送信 | Formspree |
+| アクセス解析 | Vercel Web Analytics（Vercel のダッシュボードの Analytics タブで閲覧数・訪問者数を確認） |
 | デプロイ | Vercel |
 | 言語 | TypeScript |
 
