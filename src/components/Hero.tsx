@@ -35,7 +35,7 @@ export default function Hero() {
           <ul className={styles.badges}>
             <li>
               <Chip color="red" rotate={-2.5}>
-                ビンゴ大会やります！
+                お楽しみ余興あり！？
               </Chip>
             </li>
             <li>
