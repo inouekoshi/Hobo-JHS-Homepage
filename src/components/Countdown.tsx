@@ -26,7 +26,7 @@ function split(nowSec: number) {
 }
 
 /** 数字が変わるたびに、その桁の紙片だけが貼り直される */
-function PaperDigits({ value, pad, size, label }: { value: number | null; pad: number; size: "lg" | "sm"; label: string }) {
+function PaperDigits({ value, pad, size, label }: { value: number | null; pad: number; size: "lg" | "md"; label: string }) {
   const text = value === null ? null : String(value).padStart(pad, "0");
   const slots = text ? [...text] : Array.from({ length: pad }, () => null);
   return (
@@ -126,15 +126,19 @@ export default function Countdown() {
         </p>
         {t && (
           <p className="visually-hidden">
-            {t.days}日{t.hours}時間{t.minutes}分{t.seconds}秒
+            {t.days > 0 ? `${t.days}日` : `${t.hours}時間${t.minutes}分${t.seconds}秒`}
           </p>
         )}
-        <PaperDigits value={t?.days ?? null} pad={2} size="lg" label="DAYS" />
-        <div className={styles.hms}>
-          <PaperDigits value={t?.hours ?? null} pad={2} size="sm" label="HRS" />
-          <PaperDigits value={t?.minutes ?? null} pad={2} size="sm" label="MIN" />
-          <PaperDigits value={t?.seconds ?? null} pad={2} size="sm" label="SEC" />
-        </div>
+        {/* 1日以上は日数だけ。1日を切ったら時・分・秒に切り替える */}
+        {!t || t.days > 0 ? (
+          <PaperDigits value={t?.days ?? null} pad={2} size="lg" label="DAYS" />
+        ) : (
+          <div className={styles.hms}>
+            <PaperDigits value={t.hours} pad={2} size="md" label="HRS" />
+            <PaperDigits value={t.minutes} pad={2} size="md" label="MIN" />
+            <PaperDigits value={t.seconds} pad={2} size="md" label="SEC" />
+          </div>
+        )}
       </div>
       <AnimatePresence>{celebrate && <Celebration onClose={() => setDismissed(true)} />}</AnimatePresence>
     </>
