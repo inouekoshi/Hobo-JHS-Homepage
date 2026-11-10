@@ -57,6 +57,13 @@ html {
 
 /* overflow-x はbodyで塞がない（hidden だと body がスクロールコンテナ化する）。
    はみ出しは回転させた要素の側で clip する */
+/* スマホでタップしたときの青い四角を消し、ダブルタップ拡大の待ちをなくす */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 body {
   position: relative;
   min-height: 100vh;
@@ -273,8 +280,11 @@ button {
 .btn.red {
   --tape-bg: var(--red);
 }
-.btn:hover {
-  transform: rotate(calc(var(--btn-rotate, -1.5deg) * -0.7)) scale(1.04);
+/* タップ後にホバー表示が残らないよう、マウスのある端末に限る */
+@media (hover: hover) {
+  .btn:hover {
+    transform: rotate(calc(var(--btn-rotate, -1.5deg) * -0.7)) scale(1.04);
+  }
 }
 .btn:active {
   transform: rotate(0deg) scale(0.98);

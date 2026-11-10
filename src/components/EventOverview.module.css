@@ -2,30 +2,39 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 22px;
 }
 
+/* スマホでは英字ラベルと見出しを1行に並べ、カードの縦幅を詰める */
 .card {
   height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 10px;
+  padding: 20px 16px 14px;
+}
+.body,
+.note {
+  grid-column: 1 / -1;
 }
 
 .en {
-  font-size: 34px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: 0.04em;
 }
 
 .title {
-  margin-top: 4px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
 }
 
 .body {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 15px;
   font-weight: 700;
-  line-height: 1.8;
+  line-height: 1.75;
   white-space: pre-line;
 }
 
@@ -106,6 +115,21 @@
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .card {
+    display: block;
+    padding: 22px 18px 18px;
+  }
+  .en {
+    font-size: 34px;
+  }
+  .title {
+    margin-top: 4px;
+    font-size: 15px;
+  }
+  .body {
+    margin-top: 8px;
   }
 }
 

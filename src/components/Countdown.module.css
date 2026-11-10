@@ -64,7 +64,7 @@
 }
 
 .lg {
-  --d: clamp(92px, 30vw, 150px);
+  --d: clamp(84px, 26vw, 150px);
 }
 .sm {
   --d: clamp(32px, 9vw, 46px);

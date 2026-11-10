@@ -205,8 +205,13 @@
   background: var(--ink);
   filter: url(#tape-edge);
 }
-.skip:hover {
-  transform: rotate(2deg) scale(1.05);
+@media (hover: hover) {
+  .skip:hover {
+    transform: rotate(2deg) scale(1.05);
+  }
+}
+.skip:active {
+  transform: rotate(0deg) scale(0.97);
 }
 
 @media (max-width: 600px) {

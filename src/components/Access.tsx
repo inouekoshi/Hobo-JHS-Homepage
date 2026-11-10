@@ -5,6 +5,11 @@ import styles from "./Access.module.css";
 const MAP_SRC =
   "https://maps.google.com/maps?q=%E3%83%97%E3%83%A9%E3%83%88%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB%E5%9B%9B%E6%97%A5%E5%B8%82+%E4%B8%89%E9%87%8D%E7%9C%8C%E5%9B%9B%E6%97%A5%E5%B8%82%E5%B8%82%E8%A5%BF%E6%96%B0%E5%9C%B07-3&output=embed&hl=ja&z=16";
 
+/* スマホでは Google マップのアプリが開く（universal link） */
+const MAPS_APP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  "プラトンホテル四日市 三重県四日市市西新地7-3",
+)}`;
+
 export default function Access() {
   return (
     <section id="access" className={`section wide ${styles.access}`}>
@@ -45,6 +50,9 @@ export default function Access() {
               </a>
             </h3>
             <p className={styles.address}>〒510-0087 三重県四日市市西新地7-3</p>
+            <a href={MAPS_APP_URL} target="_blank" rel="noopener noreferrer" className={`btn red ${styles.mapBtn}`}>
+              地図アプリで開く <span aria-hidden="true">↗</span>
+            </a>
 
             <dl className={styles.list}>
               <div>
