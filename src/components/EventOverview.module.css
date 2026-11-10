@@ -158,3 +158,17 @@
     font-size: 24px;
   }
 }
+
+/* リード文の下に添える招待状の注記 */
+.leadNote {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--red);
+}
+@media (min-width: 900px) {
+  .leadNote {
+    font-size: 13.5px;
+  }
+}

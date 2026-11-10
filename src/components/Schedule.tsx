@@ -3,7 +3,7 @@ import { SectionHead, Tape } from "./ui";
 import styles from "./Schedule.module.css";
 
 const STEPS = [
-  { date: "11月中旬", day: "", title: "会費の振込先をご案内", body: "PayPay銀行の口座を、出席者の皆さんへ LINE でお知らせします。" },
+  { date: "11月中旬", day: "", title: "会費の振込先をご案内", body: "PayPay銀行の口座を、出席者の皆さんへ LINE などでお知らせします。" },
   { date: "12.06", day: "SUN", title: "会費の振込締切", body: "振込が済んだ時点で出席確定です。" },
   { date: "01.08", day: "FRI", title: "欠席連絡の期限（正午）", body: "ここまでのご連絡なら会費を全額返金します。" },
   { date: "01.10", day: "SUN", title: "同窓会 当日", body: "18:00 開宴。プラトンホテル四日市にて。" },
