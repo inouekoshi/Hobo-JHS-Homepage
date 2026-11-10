@@ -48,7 +48,7 @@
   animation-play-state: paused;
 }
 
-/* スマホでは日時・会場 → カウントダウン → バッジ・ボタンの順に並べ、
+/* スマホでは日時・会場 → カウントダウン → ボタンの順に並べ、
    ファーストビューの近くにカウントダウンを置く。
    .info を display: contents にして、中身を .lower の並びに直接参加させる */
 .lower {
@@ -74,9 +74,6 @@
 .frameWrap {
   order: 4;
   margin-top: 22px;
-}
-.badges {
-  order: 5;
 }
 .cta {
   order: 6;
@@ -131,20 +128,8 @@
   font-size: clamp(15px, 4.2vw, 19px);
 }
 
-.badges {
-  list-style: none;
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 12px;
-}
-.badges :global(.chip) {
-  font-size: 13px;
-}
-
 .cta {
-  margin-top: 26px;
+  margin-top: 30px;
 }
 
 /* カウントダウンを、写真のように枠に入れて貼る */
@@ -216,14 +201,8 @@
     align-items: flex-start;
     text-align: left;
   }
-  .badges {
-    margin-top: 18px;
-  }
   .frameWrap {
     margin-top: 0;
-  }
-  .badges {
-    justify-content: flex-start;
   }
   .frameWrap {
     width: 420px;

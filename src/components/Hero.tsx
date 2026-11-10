@@ -1,7 +1,7 @@
 import CollageLogo from "./CollageLogo";
 import Countdown from "./Countdown";
 import ReplayButton from "./ReplayButton";
-import { Chip, Star, Tape } from "./ui";
+import { Star, Tape } from "./ui";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -31,19 +31,6 @@ export default function Hero() {
             <span className="num">18:00</span> 開宴
           </p>
           <p className={styles.venue}>プラトンホテル四日市</p>
-
-          <ul className={styles.badges}>
-            <li>
-              <Chip color="red" rotate={-2.5}>
-                お楽しみ余興あり！？
-              </Chip>
-            </li>
-            <li>
-              <Chip color="blue" rotate={2}>
-                豪華景品も用意！？
-              </Chip>
-            </li>
-          </ul>
 
           <a href="#contact" className={`btn yellow ${styles.cta}`}>
             お問い合わせはこちら <span aria-hidden="true">↓</span>
