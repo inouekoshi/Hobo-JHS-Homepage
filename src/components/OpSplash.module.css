@@ -38,15 +38,15 @@
   clip-path: polygon(2% 3%, 97% 0, 100% 31%, 97% 67%, 99% 96%, 44% 100%, 0 95%, 3% 42%);
   box-shadow: 2px 3px 1px #0002;
 }
-.offcut0 { width: 9%; height: 8%; left: -4%; top: -3%; background: var(--red); transform: rotate(-30deg); }
-.offcut1 { width: 12%; height: 15%; left: 86%; top: 10%; background: var(--blue); transform: rotate(-11deg); }
-.offcut2 { width: 16%; height: 8%; left: 14%; top: 89%; background: var(--yellow); transform: rotate(8deg); }
+.offcut0 { width: 9%; height: 8%; left: -4%; top: -3%; background: var(--pink); transform: rotate(-30deg); }
+.offcut1 { width: 12%; height: 15%; left: 86%; top: 10%; background: var(--green); transform: rotate(-11deg); }
+.offcut2 { width: 16%; height: 8%; left: 14%; top: 89%; background: var(--lemon); transform: rotate(8deg); }
 .offcut3 { width: 9%; height: 15%; left: 76%; top: 92%; background: repeating-linear-gradient(35deg, #181818 0 5px, #f6f3e9 5px 11px); transform: rotate(27deg); }
-.offcut4 { width: 12%; height: 8%; left: -4%; top: 66%; background: var(--red); transform: rotate(46deg); }
-.offcut5 { width: 15%; height: 15%; left: 93%; top: 48%; background: var(--blue); transform: rotate(65deg); }
-.offcut6 { width: 8%; height: 8%; left: 32%; top: -5%; background: var(--yellow); transform: rotate(84deg); }
+.offcut4 { width: 12%; height: 8%; left: -4%; top: 66%; background: var(--pink); transform: rotate(46deg); }
+.offcut5 { width: 15%; height: 15%; left: 93%; top: 48%; background: var(--green); transform: rotate(65deg); }
+.offcut6 { width: 8%; height: 8%; left: 32%; top: -5%; background: var(--lemon); transform: rotate(84deg); }
 .offcut7 { width: 12%; height: 15%; left: 62%; top: -9%; background: conic-gradient(var(--ink) 25%, #fff 0 50%, var(--ink) 0 75%, #fff 0) 0 0 / 14px 14px; transform: rotate(103deg); }
-.offcut8 { width: 14%; height: 7%; left: 5%; top: 26%; background: var(--red); transform: rotate(122deg); }
+.offcut8 { width: 14%; height: 7%; left: 5%; top: 26%; background: var(--pink); transform: rotate(122deg); }
 
 .edge {
   position: absolute;
@@ -140,7 +140,7 @@
   font-weight: 700;
   font-size: clamp(18px, 2.6vw, 30px);
   letter-spacing: 0.2em;
-  color: var(--blue);
+  color: var(--green);
 }
 .unit :global(.tape) {
   font-family: var(--font-num);
@@ -150,7 +150,7 @@
   transform: rotate(1.5deg);
 }
 .sun {
-  color: var(--yellow);
+  color: var(--lemon);
 }
 
 .finale,
@@ -180,7 +180,7 @@
 .wipe {
   z-index: 5;
   pointer-events: none;
-  background: #f1d12c;
+  background: var(--lemon);
   transform: translateY(115%) rotate(-8deg);
   clip-path: polygon(0 0, 100% 0, 100% 94%, 85% 100%, 63% 95%, 49% 100%, 30% 96%, 10% 99%, 0 95%);
 }

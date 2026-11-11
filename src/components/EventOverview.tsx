@@ -3,12 +3,12 @@ import { SectionHead } from "./ui";
 import styles from "./EventOverview.module.css";
 
 const INFO = [
-  { en: "DATE", title: "日時", body: "2027年1月10日（日）\n18:00 開宴", tape: "red", rotate: -0.8 },
+  { en: "DATE", title: "日時", body: "2027年1月10日（日）\n18:00 開宴", tape: "pink", rotate: -0.8 },
   {
     en: "PLACE",
     title: "会場",
     body: "プラトンホテル四日市\n〒510-0087 三重県四日市市西新地7-3",
-    tape: "blue",
+    tape: "green",
     rotate: 0.9,
   },
   {
@@ -16,16 +16,16 @@ const INFO = [
     title: "会費",
     body: "10,000円\n12月6日（日）までに事前振込",
     note: "※恩師の先生方からは徴収いたしません",
-    tape: "yellow",
+    tape: "lemon",
     rotate: -0.6,
   },
-  { en: "WHO", title: "参加者", body: "保々中学校 卒業生 47名\n＋ 恩師の先生方 4名", tape: "blue", rotate: 0.7 },
-  { en: "DRESS", title: "服装", body: "自由\n（成人式の振袖・スーツもOK）", tape: "yellow", rotate: -0.9 },
+  { en: "WHO", title: "参加者", body: "保々中学校 卒業生 47名\n＋ 恩師の先生方 4名", tape: "green", rotate: 0.7 },
+  { en: "DRESS", title: "服装", body: "自由\n（成人式の振袖・スーツもOK）", tape: "lemon", rotate: -0.9 },
   {
     en: "EVENT",
     title: "イベント内容",
     body: "食事＋飲み放題の同窓会プラン\n余興も企画中…！？",
-    tape: "red",
+    tape: "pink",
     rotate: 0.6,
   },
 ] as const;
@@ -45,7 +45,7 @@ const NOTICE = [
   { head: "手数料", body: "振込手数料は各自でご負担ください。" },
 ];
 
-const EN_COLOR = { red: "var(--red)", blue: "var(--blue)", yellow: "var(--ink)" } as const;
+const EN_COLOR = { pink: "var(--pink)", green: "var(--green)", lemon: "var(--ink)" } as const;
 
 export default function EventOverview() {
   return (
@@ -86,7 +86,7 @@ export default function EventOverview() {
 
       <Reveal rotate={-0.6} delay={0.05}>
         <div className={`card ${styles.notice}`}>
-          <span className="corner-tape red" aria-hidden="true" />
+          <span className="corner-tape pink" aria-hidden="true" />
           <h3 className={styles.noticeTitle}>
             <span className="num">NOTICE</span>会費のお支払いについて
           </h3>

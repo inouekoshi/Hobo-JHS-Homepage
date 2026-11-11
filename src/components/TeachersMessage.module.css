@@ -15,13 +15,13 @@
 .tapeLeft {
   left: -18px;
   bottom: 22px;
-  background: var(--blue);
+  background: var(--green);
   transform: rotate(-38deg);
 }
 .tapeRight {
   right: -16px;
   top: 18px;
-  background: var(--yellow);
+  background: var(--lemon);
   transform: rotate(32deg);
 }
 .star {
@@ -42,7 +42,7 @@
   width: 88px;
   height: 7px;
   margin: 10px auto 0;
-  background: var(--red);
+  background: var(--pink);
   filter: url(#tape-edge);
   transform: rotate(-2deg);
 }
@@ -57,7 +57,7 @@
   line-height: 2;
 }
 
-/* 強調はマーカーで引いた黄色の帯 */
+/* 強調はマーカーで引いたレモン色の帯 */
 .highlight {
   text-align: center;
   font-size: 17px;
@@ -70,7 +70,7 @@
   font-size: 0.85em;
 }
 .highlight span {
-  background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 92%, transparent 92%);
+  background: linear-gradient(transparent 55%, var(--lemon) 55%, var(--lemon) 92%, transparent 92%);
   padding: 0 0.15em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -92,9 +92,9 @@
   place-items: center;
   width: 52px;
   height: 52px;
-  border: 3px solid var(--red);
+  border: 3px solid var(--pink);
   border-radius: 50%;
-  color: var(--red);
+  color: var(--pink);
   font-weight: 900;
   font-size: 16px;
   letter-spacing: -0.05em;

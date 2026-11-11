@@ -1,14 +1,17 @@
 /* =========================================================
    デザイントークン
-   切り貼り（コラージュ）／ZINE 風。紙の地に、赤・青・黄のテープと
+   切り貼り（コラージュ）／ZINE 風。紙の地に、ピンク・緑・レモンのテープと
    ハードシャドウの紙片を重ねていく
    ========================================================= */
 :root {
-  --blue: #1a33d6;
-  --red: #e31b23;
-  --yellow: #f4d21f;
-  --ink: #111111;
-  --paper: #f8f8f8;
+  --green: #179c6b;
+  --pink: #ec4b86;
+  --lemon: #f4dc3c;
+  /* 小さい文字に使う濃いめの色（地とのコントラスト比 4.5 以上） */
+  --pink-ink: #c4245f;
+  --green-ink: #127a54;
+  --ink: #161616;
+  --paper: #f9f8f6;
   --kraft: #f3ebd9;
 
   --font-body: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
@@ -139,7 +142,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--green);
   outline-offset: 3px;
 }
 
@@ -169,16 +172,16 @@ button {
   --tape-bg: var(--ink);
   color: #fff;
 }
-.tape.red {
-  --tape-bg: var(--red);
+.tape.pink {
+  --tape-bg: var(--pink);
   color: #fff;
 }
-.tape.blue {
-  --tape-bg: var(--blue);
+.tape.green {
+  --tape-bg: var(--green);
   color: #fff;
 }
-.tape.yellow {
-  --tape-bg: var(--yellow);
+.tape.lemon {
+  --tape-bg: var(--lemon);
   color: var(--ink);
 }
 
@@ -237,16 +240,16 @@ button {
   inset: 0;
   z-index: -1;
   filter: url(#tape-edge);
-  background: var(--chip-bg, var(--red));
+  background: var(--chip-bg, var(--pink));
 }
-.chip.blue {
-  --chip-bg: var(--blue);
+.chip.green {
+  --chip-bg: var(--green);
 }
 .chip.black {
   --chip-bg: var(--ink);
 }
-.chip.yellow {
-  --chip-bg: var(--yellow);
+.chip.lemon {
+  --chip-bg: var(--lemon);
   color: var(--ink);
 }
 
@@ -273,12 +276,12 @@ button {
   background: var(--tape-bg, var(--ink));
   filter: url(#tape-edge);
 }
-.btn.yellow {
-  --tape-bg: var(--yellow);
+.btn.lemon {
+  --tape-bg: var(--lemon);
   color: var(--ink);
 }
-.btn.red {
-  --tape-bg: var(--red);
+.btn.pink {
+  --tape-bg: var(--pink);
 }
 /* タップ後にホバー表示が残らないよう、マウスのある端末に限る */
 @media (hover: hover) {
@@ -328,13 +331,13 @@ button {
   height: 21px;
   transform: rotate(-4deg);
   filter: url(#tape-edge);
-  background: var(--yellow);
+  background: var(--lemon);
 }
-.corner-tape.red {
-  background: var(--red);
+.corner-tape.pink {
+  background: var(--pink);
 }
-.corner-tape.blue {
-  background: var(--blue);
+.corner-tape.green {
+  background: var(--green);
 }
 .corner-tape.right {
   left: auto;
@@ -352,7 +355,7 @@ button {
   height: 20px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #ff8f8f, var(--red) 65%, #950e14 100%);
+  background: radial-gradient(circle at 35% 30%, #ffa3c4, var(--pink) 65%, #a3204f 100%);
   box-shadow:
     2px 3px 3px rgba(17, 17, 17, 0.4),
     inset -2px -2px 3px rgba(17, 17, 17, 0.25);
@@ -374,13 +377,13 @@ button {
   height: 16px;
   margin: 8px -10px;
   filter: url(#tape-edge);
-  background: var(--red);
+  background: var(--pink);
 }
-.divider.blue {
-  background: var(--blue);
+.divider.green {
+  background: var(--green);
 }
-.divider.yellow {
-  background: var(--yellow);
+.divider.lemon {
+  background: var(--lemon);
 }
 
 /* セクション共通の幅 */

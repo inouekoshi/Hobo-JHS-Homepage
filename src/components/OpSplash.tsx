@@ -168,7 +168,7 @@ function CountdownStage({ day }: { day: string }) {
       </div>
       <p className={styles.unit} data-chrome>
         <span className={styles.unitDays}>DAYS</span>
-        <span className="tape red">
+        <span className="tape pink">
           2027.01.10 <span className={styles.sun}>SUN</span> 18:00
         </span>
       </p>

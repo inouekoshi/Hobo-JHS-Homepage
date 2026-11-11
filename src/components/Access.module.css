@@ -12,7 +12,7 @@
 .mapFrame {
   background: var(--ink);
   padding: 10px;
-  box-shadow: 6px 6px 0 var(--red);
+  box-shadow: 6px 6px 0 var(--pink);
 }
 .map {
   display: block;
@@ -31,14 +31,14 @@
   top: 0;
   left: 10%;
   width: 34%;
-  background: var(--yellow);
+  background: var(--lemon);
   transform: rotate(-4deg);
 }
 .mapTapeBlue {
   bottom: -8px;
   right: 6%;
   width: 28%;
-  background: var(--blue);
+  background: var(--green);
   transform: rotate(5deg);
 }
 
@@ -56,11 +56,11 @@
 }
 @media (hover: hover) {
   .venue a:hover {
-    color: var(--blue);
+    color: var(--green);
   }
 }
 .venue a:active {
-  color: var(--blue);
+  color: var(--green);
 }
 .address {
   margin-top: 4px;

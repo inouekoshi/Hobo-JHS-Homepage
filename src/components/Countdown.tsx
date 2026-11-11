@@ -55,7 +55,7 @@ function PaperDigits({ value, pad, size, label }: { value: number | null; pad: n
   );
 }
 
-const CONFETTI_COLORS = ["var(--red)", "var(--blue)", "var(--yellow)", "var(--ink)"];
+const CONFETTI_COLORS = ["var(--pink)", "var(--green)", "var(--lemon)", "var(--ink)"];
 
 function Celebration({ onClose }: { onClose: () => void }) {
   const [pieces] = useState(() =>

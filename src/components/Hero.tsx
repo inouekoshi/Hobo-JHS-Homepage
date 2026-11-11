@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
           <p className={styles.venue}>プラトンホテル四日市</p>
 
-          <a href="#contact" className={`btn yellow ${styles.cta}`}>
+          <a href="#contact" className={`btn lemon ${styles.cta}`}>
             お問い合わせはこちら <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -40,7 +40,7 @@ export default function Hero() {
         <div className={styles.frameWrap}>
           <span className={`${styles.frameTape} ${styles.frameTapeBlue}`} aria-hidden="true" />
           <span className={`${styles.frameTape} ${styles.frameTapeYellow}`} aria-hidden="true" />
-          <Star className={styles.frameStar} color="var(--red)" size={26} rotate={14} />
+          <Star className={styles.frameStar} color="var(--pink)" size={26} rotate={14} />
           <div className={styles.frame}>
             <Countdown />
             <svg className={styles.framePattern} width="56" height="56" aria-hidden="true">

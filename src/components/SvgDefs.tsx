@@ -18,7 +18,7 @@ export default function SvgDefs() {
           <rect width="14" height="14" fill="white" />
           <circle cx="7" cy="7" r="2.6" fill="#111" />
         </pattern>
-        <pattern id="dots-blue" width="12" height="12" patternUnits="userSpaceOnUse">
+        <pattern id="dots-green" width="12" height="12" patternUnits="userSpaceOnUse">
           <rect width="12" height="12" fill="white" />
           <circle cx="6" cy="6" r="3" fill="#1A33D6" />
         </pattern>
@@ -27,12 +27,12 @@ export default function SvgDefs() {
           <rect width="7" height="7" fill="white" />
           <rect x="7" y="7" width="7" height="7" fill="white" />
         </pattern>
-        <pattern id="check-blue" width="16" height="16" patternUnits="userSpaceOnUse">
+        <pattern id="check-green" width="16" height="16" patternUnits="userSpaceOnUse">
           <rect width="16" height="16" fill="#1A33D6" />
           <rect width="8" height="8" fill="white" />
           <rect x="8" y="8" width="8" height="8" fill="white" />
         </pattern>
-        <pattern id="stripe-red" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <pattern id="stripe-pink" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <rect width="10" height="10" fill="white" />
           <rect width="10" height="4.5" fill="#E31B23" />
         </pattern>

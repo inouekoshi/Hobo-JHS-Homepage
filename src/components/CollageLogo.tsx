@@ -2,22 +2,22 @@ import type { CSSProperties } from "react";
 import styles from "./CollageLogo.module.css";
 
 /** 1文字ずつ別の紙から切り抜いて貼った、脅迫状風のタイトルロゴ */
-type Paper = "red" | "blue" | "yellow" | "black" | "white" | "kraft";
+type Paper = "pink" | "green" | "lemon" | "black" | "white" | "kraft";
 
 const LINE1: [string, Paper, number][] = [
-  ["保", "red", -6],
+  ["保", "pink", -6],
   ["々", "white", 4],
-  ["中", "blue", -2],
-  ["学", "yellow", 5],
+  ["中", "green", -2],
+  ["学", "lemon", 5],
   ["校", "black", -4],
 ];
 
 const LINE2: [string, Paper, number][] = [
   ["新", "white", 3],
-  ["成", "red", -5],
+  ["成", "pink", -5],
   ["人", "kraft", 2],
-  ["同", "blue", -3],
-  ["窓", "yellow", 6],
+  ["同", "green", -3],
+  ["窓", "lemon", 6],
   ["会", "black", -2],
 ];
 

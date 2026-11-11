@@ -44,7 +44,7 @@
   border-top: 2px dashed #ccc;
   font-size: 12.5px;
   font-weight: 700;
-  color: var(--red);
+  color: var(--pink-ink);
 }
 
 /* 会費のお知らせ */
@@ -64,7 +64,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 1;
-  color: var(--red);
+  color: var(--pink);
   letter-spacing: 0.04em;
 }
 .noticeList {
@@ -83,10 +83,10 @@
 }
 .noticeList strong {
   font-weight: 900;
-  color: var(--blue);
+  color: var(--green-ink);
 }
 
-/* 黄色い破れ紙に書いたひとこと */
+/* レモン色の破れ紙に書いたひとこと */
 .message {
   position: relative;
   z-index: 0;
@@ -103,7 +103,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--yellow);
+  background: var(--lemon);
   filter: url(#torn-edge);
 }
 .messageStrong {
@@ -165,7 +165,7 @@
   margin-top: 6px;
   font-size: 12.5px;
   line-height: 1.7;
-  color: var(--red);
+  color: var(--pink-ink);
 }
 @media (min-width: 900px) {
   .leadNote {

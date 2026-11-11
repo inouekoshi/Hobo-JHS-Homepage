@@ -6,7 +6,7 @@ export default function TeachersMessage() {
   return (
     <section id="teachers" className={`section ${styles.teachers}`}>
       <Reveal rotate={1.5}>
-        <SectionHead label="FOR OUR TEACHERS" color="red" rotate={1.5} />
+        <SectionHead label="FOR OUR TEACHERS" color="pink" rotate={1.5} />
       </Reveal>
 
       <Reveal rotate={-0.8} y={32}>
@@ -14,7 +14,7 @@ export default function TeachersMessage() {
           <span className="pushpin" aria-hidden="true" />
           <span className={styles.tapeLeft} aria-hidden="true" />
           <span className={styles.tapeRight} aria-hidden="true" />
-          <Star className={styles.star} color="var(--blue)" size={24} rotate={-12} />
+          <Star className={styles.star} color="var(--green)" size={24} rotate={-12} />
 
           <h2 className={styles.title}>恩師の皆様へ</h2>
 

@@ -16,7 +16,7 @@ export default function Access() {
       <Reveal rotate={1.2}>
         <SectionHead
           label="ACCESS"
-          color="yellow"
+          color="lemon"
           rotate={1.2}
           title="アクセス"
           lead="会場へのアクセス方法をご案内します。"
@@ -50,14 +50,14 @@ export default function Access() {
               </a>
             </h3>
             <p className={styles.address}>〒510-0087 三重県四日市市西新地7-3</p>
-            <a href={MAPS_APP_URL} target="_blank" rel="noopener noreferrer" className={`btn red ${styles.mapBtn}`}>
+            <a href={MAPS_APP_URL} target="_blank" rel="noopener noreferrer" className={`btn pink ${styles.mapBtn}`}>
               地図アプリで開く <span aria-hidden="true">↗</span>
             </a>
 
             <dl className={styles.list}>
               <div>
                 <dt>
-                  <Chip color="blue" rotate={-2}>
+                  <Chip color="green" rotate={-2}>
                     電車
                   </Chip>
                 </dt>
@@ -65,7 +65,7 @@ export default function Access() {
               </div>
               <div>
                 <dt>
-                  <Chip color="red" rotate={1.5}>
+                  <Chip color="pink" rotate={1.5}>
                     お車
                   </Chip>
                 </dt>
@@ -73,7 +73,7 @@ export default function Access() {
               </div>
               <div>
                 <dt>
-                  <Chip color="yellow" rotate={-1}>
+                  <Chip color="lemon" rotate={-1}>
                     ご注意
                   </Chip>
                 </dt>

@@ -82,7 +82,7 @@
 .pc nav a {
   display: block;
   position: relative;
-  /* 赤テープの位置はこの値から導出する。上下paddingは必ずこの変数で変える */
+  /* ピンクのテープの位置はこの値から導出する。上下paddingは必ずこの変数で変える */
   --nav-pad-y: 12px;
   padding: var(--nav-pad-y) 14px;
   font-family: var(--font-num);
@@ -100,7 +100,7 @@
   right: 18%;
   bottom: calc(var(--nav-pad-y) - 6px);
   height: 6px;
-  background: var(--red);
+  background: var(--pink);
   filter: url(#tape-edge);
   opacity: 0;
   transform: scaleX(0.8);
@@ -175,7 +175,7 @@
 }
 .b2 {
   top: 10.5px;
-  background: var(--red);
+  background: var(--pink);
 }
 .b3 {
   top: 19px;
@@ -226,7 +226,7 @@
   filter: url(#tape-edge);
 }
 .menu a[aria-current]::before {
-  background: var(--yellow);
+  background: var(--lemon);
 }
 .menuDeco {
   position: absolute;
@@ -237,7 +237,7 @@
   top: 18%;
   width: 120px;
   height: 90px;
-  background: conic-gradient(var(--blue) 25%, #fff 0 50%, var(--blue) 0 75%, #fff 0) 0 0 / 16px 16px;
+  background: conic-gradient(var(--green) 25%, #fff 0 50%, var(--green) 0 75%, #fff 0) 0 0 / 16px 16px;
   transform: rotate(12deg);
 }
 .decoStripe {
@@ -254,7 +254,7 @@
   bottom: 14%;
   font-family: var(--font-num);
   font-size: 38px;
-  color: var(--red);
+  color: var(--pink);
   transform: rotate(14deg);
 }
 

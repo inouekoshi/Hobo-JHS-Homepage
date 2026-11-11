@@ -104,7 +104,7 @@
   font-weight: 700;
   font-size: 0.3em;
   line-height: 1;
-  color: var(--red);
+  color: var(--pink);
   transform: rotate(90deg);
   transform-origin: 0 0;
   white-space: nowrap;
@@ -118,7 +118,7 @@
 .time :global(.num) {
   font-weight: 400;
   font-size: 1.35em;
-  color: var(--blue);
+  color: var(--green);
   margin-right: 0.15em;
 }
 
@@ -145,7 +145,7 @@
   border: 2px solid var(--ink);
   padding: 22px 12px 26px;
   transform: rotate(1.5deg);
-  box-shadow: 6px 6px 0 var(--blue);
+  box-shadow: 6px 6px 0 var(--green);
 }
 .framePattern {
   position: absolute;
@@ -165,7 +165,7 @@
   left: 16%;
   width: 40%;
   height: 16px;
-  background: var(--blue);
+  background: var(--green);
   transform: rotate(-5deg);
 }
 .frameTapeYellow {
@@ -173,7 +173,7 @@
   left: 0;
   width: 16px;
   height: 34px;
-  background: var(--yellow);
+  background: var(--lemon);
   transform: rotate(-4deg);
 }
 .frameStar {

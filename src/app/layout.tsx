@@ -61,7 +61,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#f8f8f8",
+  themeColor: "#f9f8f6",
 };
 
 /* 初回訪問ならOPが始まるまで紙で覆う（Reactのハイドレーションを待たずに判定する）。

@@ -1,11 +1,11 @@
 /** OGP画像・アイコンを next/og で描くための共通部品 */
 
 export const COLORS = {
-  red: "#e31b23",
-  blue: "#1a33d6",
-  yellow: "#f4d21f",
-  ink: "#111111",
-  paper: "#f8f8f8",
+  pink: "#ec4b86",
+  green: "#179c6b",
+  lemon: "#f4dc3c",
+  ink: "#161616",
+  paper: "#f9f8f6",
   kraft: "#f3ebd9",
 };
 
@@ -54,7 +54,7 @@ export function IconArt({ size: s }: { size: number }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: COLORS.red,
+          background: COLORS.pink,
           color: "#fff",
           fontFamily: "NotoSansJP",
           fontSize: s * 0.66,
@@ -72,7 +72,7 @@ export function IconArt({ size: s }: { size: number }) {
           top: s * 0.1,
           width: s * 0.46,
           height: s * 0.17,
-          background: COLORS.yellow,
+          background: COLORS.lemon,
           transform: "rotate(-38deg)",
           clipPath: tornClip(3, 4, 5),
         }}

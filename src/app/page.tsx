@@ -16,15 +16,15 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Divider color="red" />
+        <Divider color="pink" />
         <EventOverview />
-        <Divider color="blue" />
+        <Divider color="green" />
         <TeachersMessage />
-        <Divider color="red" />
+        <Divider color="pink" />
         <Schedule />
-        <Divider color="blue" />
+        <Divider color="green" />
         <Access />
-        <Divider color="red" />
+        <Divider color="pink" />
         <ContactForm />
       </main>
       <Footer />

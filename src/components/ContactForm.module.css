@@ -21,7 +21,7 @@
   font-size: 10.5px;
   font-weight: 800;
   color: #fff;
-  background: var(--red);
+  background: var(--pink);
   transform: rotate(-3deg);
   vertical-align: 1px;
 }
@@ -55,14 +55,14 @@
 .field textarea:focus {
   outline: none;
   background: #fff;
-  box-shadow: 5px 5px 0 var(--blue);
+  box-shadow: 5px 5px 0 var(--green);
   transform: translate(-1px, -1px);
 }
 
 .error {
   padding: 10px 14px;
-  border: 2px solid var(--red);
-  color: var(--red);
+  border: 2px solid var(--pink);
+  color: var(--pink-ink);
   font-size: 14px;
   font-weight: 700;
   background: #fff;

@@ -79,12 +79,12 @@
 }
 .lg .label {
   font-size: 18px;
-  color: var(--red);
+  color: var(--pink);
   margin-left: 6px;
 }
 .md .label {
   font-size: 12px;
-  color: var(--blue);
+  color: var(--green-ink);
 }
 
 .hms {
@@ -105,7 +105,7 @@
   z-index: 1000;
   display: grid;
   place-items: center;
-  background: rgba(248, 248, 248, 0.94);
+  background: rgba(249, 248, 246, 0.94);
   overflow: hidden;
   cursor: pointer;
 }
@@ -137,7 +137,7 @@
   padding: 0.08em 0.1em;
 }
 .c0 {
-  background: var(--red);
+  background: var(--pink);
   color: #fff;
   transform: rotate(-6deg);
 }
@@ -145,11 +145,11 @@
   color: var(--ink);
 }
 .c2 {
-  background: var(--yellow);
+  background: var(--lemon);
   transform: rotate(4deg);
 }
 .c3 {
-  background: var(--blue);
+  background: var(--green);
   color: #fff;
   transform: rotate(-3deg);
 }

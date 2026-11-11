@@ -5,23 +5,23 @@ export const alt = "保々中学校 新成人同窓会 2027 — 2027年1月10日
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const { red: RED, blue: BLUE, yellow: YELLOW, ink: INK, paper: PAPER, kraft: KRAFT } = COLORS;
+const { pink: PINK, green: GREEN, lemon: LEMON, ink: INK, paper: PAPER, kraft: KRAFT } = COLORS;
 
 type Letter = [string, string, string, number];
 
 const LINE1: Letter[] = [
-  ["保", RED, "#fff", -6],
+  ["保", PINK, "#fff", -6],
   ["々", "#fff", INK, 4],
-  ["中", BLUE, "#fff", -2],
-  ["学", YELLOW, INK, 5],
+  ["中", GREEN, "#fff", -2],
+  ["学", LEMON, INK, 5],
   ["校", INK, "#fff", -4],
 ];
 const LINE2: Letter[] = [
   ["新", "#fff", INK, 3],
-  ["成", RED, "#fff", -5],
-  ["人", KRAFT, RED, 2],
-  ["同", BLUE, "#fff", -3],
-  ["窓", YELLOW, INK, 6],
+  ["成", PINK, "#fff", -5],
+  ["人", KRAFT, PINK, 2],
+  ["同", GREEN, "#fff", -3],
+  ["窓", LEMON, INK, 6],
   ["会", INK, "#fff", -2],
 ];
 
@@ -95,24 +95,24 @@ export default async function Image() {
         }}
       >
         {/* 画面の端に貼った紙片 */}
-        <Scrap seed={11} background={RED} style={{ left: -70, top: -60, width: 170, height: 780, transform: "rotate(-7deg)" }} />
+        <Scrap seed={11} background={PINK} style={{ left: -70, top: -60, width: 170, height: 780, transform: "rotate(-7deg)" }} />
         <Scrap
           seed={23}
           background={`repeating-linear-gradient(55deg, ${INK} 0px, ${INK} 12px, ${PAPER} 12px, ${PAPER} 27px)`}
           style={{ right: -60, top: -60, width: 280, height: 210, transform: "rotate(13deg)" }}
         />
-        <Scrap seed={5} background={YELLOW} style={{ right: 70, top: 168, width: 96, height: 70, transform: "rotate(-14deg)" }} />
-        <Scrap seed={37} background={BLUE} style={{ left: 150, bottom: -50, width: 360, height: 100, transform: "rotate(7deg)" }} />
+        <Scrap seed={5} background={LEMON} style={{ right: 70, top: 168, width: 96, height: 70, transform: "rotate(-14deg)" }} />
+        <Scrap seed={37} background={GREEN} style={{ left: 150, bottom: -50, width: 360, height: 100, transform: "rotate(7deg)" }} />
         <Scrap
           seed={41}
-          background={`radial-gradient(circle, ${BLUE} 28%, transparent 30%)`}
+          background={`radial-gradient(circle, ${GREEN} 28%, transparent 30%)`}
           style={{ right: 40, bottom: 30, width: 150, height: 110, backgroundSize: "16px 16px", transform: "rotate(-8deg)" }}
         />
         <svg width="70" height="70" viewBox="0 0 24 24" style={{ position: "absolute", left: 150, top: 70, transform: "rotate(-14deg)" }}>
-          <path fill={YELLOW} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
+          <path fill={LEMON} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
         </svg>
         <svg width="54" height="54" viewBox="0 0 24 24" style={{ position: "absolute", right: 210, bottom: 150, transform: "rotate(18deg)" }}>
-          <path fill={RED} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
+          <path fill={PINK} d="M12 1.5l3.1 6.9 7.4.7-5.6 5 1.7 7.4L12 17.7l-6.6 3.8 1.7-7.4-5.6-5 7.4-.7z" />
         </svg>
 
         {/* 黒テープの見出し */}
@@ -145,7 +145,7 @@ export default async function Image() {
               bottom: -26,
               display: "flex",
               padding: "6px 18px 2px",
-              background: RED,
+              background: PINK,
               color: "#fff",
               fontFamily: "Bebas",
               fontSize: 54,
@@ -168,7 +168,7 @@ export default async function Image() {
                 display: "flex",
                 fontFamily: "Courier",
                 fontSize: 24,
-                color: RED,
+                color: PINK,
                 marginLeft: 8,
                 marginTop: 6,
               }}
@@ -176,7 +176,7 @@ export default async function Image() {
               SUN
             </div>
             <div style={{ display: "flex", marginLeft: 22 }}>
-              <BigNum text="18:00" color={BLUE} />
+              <BigNum text="18:00" color={GREEN} />
             </div>
             <div style={{ display: "flex", fontSize: 26, marginLeft: 8, marginTop: 40 }}>開宴</div>
           </div>
@@ -184,7 +184,7 @@ export default async function Image() {
             style={{
               display: "flex",
               padding: "10px 26px",
-              background: YELLOW,
+              background: LEMON,
               fontSize: 28,
               transform: "rotate(2deg)",
               clipPath: tornClip(53, 1.4, 10),

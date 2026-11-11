@@ -1,6 +1,6 @@
 import type { CSSProperties, ElementType, ReactNode } from "react";
 
-type TapeColor = "black" | "red" | "blue" | "yellow";
+type TapeColor = "black" | "pink" | "green" | "lemon";
 
 export function Tape({
   color = "black",
@@ -23,11 +23,11 @@ export function Tape({
 }
 
 export function Chip({
-  color = "red",
+  color = "pink",
   rotate = -2,
   children,
 }: {
-  color?: "red" | "blue" | "black" | "yellow";
+  color?: "pink" | "green" | "black" | "lemon";
   rotate?: number;
   children: ReactNode;
 }) {
@@ -39,7 +39,7 @@ export function Chip({
 }
 
 export function Star({
-  color = "var(--red)",
+  color = "var(--pink)",
   size = 28,
   rotate = 0,
   className,
@@ -62,8 +62,8 @@ export function Star({
   );
 }
 
-export function Divider({ color = "red", rotate }: { color?: "red" | "blue" | "yellow"; rotate?: number }) {
-  const r = rotate ?? (color === "red" ? -1.2 : 0.8);
+export function Divider({ color = "pink", rotate }: { color?: "pink" | "green" | "lemon"; rotate?: number }) {
+  const r = rotate ?? (color === "pink" ? -1.2 : 0.8);
   return (
     <div className="divider-clip" aria-hidden="true">
       <div className={`divider ${color}`} style={{ transform: `rotate(${r}deg) scaleX(1.05)` }} />

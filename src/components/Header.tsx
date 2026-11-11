@@ -40,7 +40,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // いま読んでいるセクションに赤テープの下線を付ける
+  // いま読んでいるセクションにピンクのテープの下線を付ける
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(Boolean) as Element[];
     const io = new IntersectionObserver(

@@ -11,9 +11,9 @@ CELL = 400
 SS = 2  # スーパーサンプリング
 C = CELL * SS
 
-RED = np.array([222, 32, 36], float)
-BLUE = np.array([30, 58, 196], float)
-YELLOW = np.array([242, 204, 34], float)
+PINK = np.array([232, 72, 130], float)
+GREEN = np.array([22, 150, 104], float)
+LEMON = np.array([242, 216, 58], float)
 BLACK = np.array([24, 24, 26], float)
 PAPER = np.array([238, 234, 224], float)
 
@@ -84,10 +84,10 @@ def layout(rng):
     cut = 0.42 + rng.uniform(-0.08, 0.1)
     tilt = rng.uniform(-0.14, 0.14)
     layers = [
-        (BLUE, [(-0.1, -0.1), (1.1, -0.1), (1.1, 1.1), (-0.1, 1.1)]),
-        (RED, [(-0.1, -0.1), (1.1, -0.1), (1.1, cut + tilt), (0.5, cut + rng.uniform(-0.04, 0.04)), (-0.1, cut - tilt)]),
+        (GREEN, [(-0.1, -0.1), (1.1, -0.1), (1.1, 1.1), (-0.1, 1.1)]),
+        (PINK, [(-0.1, -0.1), (1.1, -0.1), (1.1, cut + tilt), (0.5, cut + rng.uniform(-0.04, 0.04)), (-0.1, cut - tilt)]),
     ]
-    extras = rng.permutation(["yellow", "stripe", "paper", "black", "yellow2"])[: rng.integers(2, 4)]
+    extras = rng.permutation(["lemon", "stripe", "paper", "black", "yellow2"])[: rng.integers(2, 4)]
     for kind in extras:
         cx, cy = rng.uniform(0.15, 0.85), rng.uniform(0.2, 0.85)
         w, h = rng.uniform(0.18, 0.42), rng.uniform(0.14, 0.34)
@@ -96,8 +96,8 @@ def layout(rng):
         pts = []
         for px, py in [(-w, -h), (w, -h * rng.uniform(0.6, 1.2)), (w * rng.uniform(0.7, 1.1), h), (-w, h * rng.uniform(0.5, 1))]:
             pts.append((cx + (px * ca - py * sa) / 2, cy + (px * sa + py * ca) / 2))
-        if kind.startswith("yellow"):
-            layers.append((YELLOW, pts))
+        if kind.startswith("lemon"):
+            layers.append((LEMON, pts))
         elif kind == "stripe":
             layers.append(("stripe", pts))
         elif kind == "paper":

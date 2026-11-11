@@ -83,7 +83,7 @@ export default function ContactForm() {
         {isSubmitted ? (
           <div className={`card ${styles.done}`} role="status">
             <span className="corner-tape" aria-hidden="true" />
-            <Tape color="blue" rotate={-2} className={styles.doneTape}>
+            <Tape color="green" rotate={-2} className={styles.doneTape}>
               THANK YOU!
             </Tape>
             <h3 className={styles.doneTitle}>送信完了！</h3>
@@ -95,7 +95,7 @@ export default function ContactForm() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={`card ${styles.form}`}>
-            <span className="corner-tape red" aria-hidden="true" />
+            <span className="corner-tape pink" aria-hidden="true" />
 
             <div className={styles.field}>
               <label htmlFor="contact-name">
@@ -151,7 +151,7 @@ export default function ContactForm() {
             )}
 
             <div className={styles.submit}>
-              <button type="submit" className="btn red" disabled={isSubmitting}>
+              <button type="submit" className="btn pink" disabled={isSubmitting}>
                 {isSubmitting ? "送信中…" : "送信する →"}
               </button>
             </div>
