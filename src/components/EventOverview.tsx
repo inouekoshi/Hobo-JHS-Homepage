@@ -19,7 +19,7 @@ const INFO = [
     tape: "yellow",
     rotate: -0.6,
   },
-  { en: "WHO", title: "参加者", body: "保々中学校 卒業生 48名\n＋ 恩師の先生方 4名", tape: "blue", rotate: 0.7 },
+  { en: "WHO", title: "参加者", body: "保々中学校 卒業生 47名\n＋ 恩師の先生方 4名", tape: "blue", rotate: 0.7 },
   { en: "DRESS", title: "服装", body: "自由\n（成人式の振袖・スーツもOK）", tape: "yellow", rotate: -0.9 },
   {
     en: "EVENT",
